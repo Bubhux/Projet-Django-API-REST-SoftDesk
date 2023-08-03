@@ -14,6 +14,6 @@ class SignupView(generics.CreateAPIView):
     une adresse e-mail, un mot de passe, l'âge et le consentement.
     L'utilisateur sera créé dans la base de données avec les informations fournies.
     """
-    queryset = User.objects.all()
+    #queryset = User.objects.all()
     permission_classes = (AllowAny,)
     serializer_class = UserSignupSerializer
