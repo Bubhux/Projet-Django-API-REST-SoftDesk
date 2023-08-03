@@ -36,10 +36,10 @@ from api.views import (
 router = SimpleRouter()
 
 # Enregistrement des vues avec le routeur simple
-router.register(r"projects", ProjectViewSet, basename="projects")
-router.register(r"users", UserContributorsViewSet, basename="users")
-router.register(r"issues", IssueViewSet, basename="issues")
-router.register(r"comments", CommentViewSet, basename="comments")
+router.register(r"projects/?", ProjectViewSet, basename="projects")
+router.register(r"contributors/?", UserContributorsViewSet, basename="contributors")
+router.register(r"issues/?", IssueViewSet, basename="issues")
+router.register(r"comments/?", CommentViewSet, basename="comments")
 
 router.register(r'admin/users', AdminUserViewSet, basename='admin-users')
 router.register(r'admin/projects', AdminProjectViewSet, basename='admin-projects')
