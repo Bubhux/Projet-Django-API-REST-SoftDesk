@@ -88,7 +88,7 @@ class ContributorDetailSerializer(serializers.ModelSerializer):
         Returns:
             Une liste de dictionnaires représentant les détails des objets Project associés.
         """
-        queryset = Project.objects.filter(project_id=instance.id)
+        queryset = Project.objects.filter(contributors__id=instance.id)
         return ProjectListSerializer(queryset, many=True).data
 
 
