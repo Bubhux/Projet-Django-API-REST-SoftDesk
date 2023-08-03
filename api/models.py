@@ -25,9 +25,12 @@ class Project(models.Model):
     # Champs du projet
     title = models.CharField(max_length=155)
     description = models.CharField(max_length=2048)
-    type = models.CharField(choices=TYPES, max_length=12)
+    type_development = models.CharField(choices=TYPES, max_length=12)
     # Relation avec l'auteur du projet (un utilisateur)
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='author')
+
+    def __str__(self):
+        return self.title
 
 
 class Contributor(models.Model):
@@ -43,6 +46,9 @@ class Contributor(models.Model):
     class Meta:
         """Définition d'une contrainte d'unicité pour que le même contributeur ne puisse pas être associé au même projet plusieurs fois"""
         unique_together = ('project_id', 'user_id')
+
+    def __str__(self):
+        return self.user.username
 
 
 class Issue(models.Model):
@@ -67,7 +73,8 @@ class Issue(models.Model):
     # Relation avec le projet auquel le problème est lié
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE, related_name='issues')
 
-    
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):
@@ -81,3 +88,5 @@ class Comment(models.Model):
     # Relation avec le problème auquel le commentaire est lié
     issue = models.ForeignKey(to=Issue, on_delete=models.CASCADE, related_name='comments')
 
+    def __str__(self):
+        return self.author.username
