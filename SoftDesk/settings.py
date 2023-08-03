@@ -141,7 +141,3 @@ REST_FRAMEWORK = {
 
 # Définir le modèle User personnalisé
 AUTH_USER_MODEL = 'user.User'
-
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-]

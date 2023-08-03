@@ -4,14 +4,13 @@ from django.contrib.auth.password_validation import validate_password
 from rest_framework import serializers
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.serializers import ModelSerializer, ValidationError, SerializerMethodField
-from django.utils.translation import gettext_lazy as _
 
-from .models import User, validate_min_age
+from . models import User, validate_min_age
 
+User = get_user_model()
 
 class UserSignupSerializer(serializers.ModelSerializer):
     """Champ personnalisé pour stocker les jetons d'authentification"""
-
     tokens = SerializerMethodField()
 
     class Meta:
@@ -28,12 +27,6 @@ class UserSignupSerializer(serializers.ModelSerializer):
         # Le mot de passe est vide, lever une erreur de validation
         raise ValidationError("Password is empty")
 
-    def validate_consent_choice(self, value):
-        """Méthode de validation personnalisée pour le champ consent_choice"""
-        if not value:
-            raise serializers.ValidationError(_("Vous devez donner votre consentement."))
-        return value
-
     def get_tokens(self, user):
         """Méthode pour obtenir les jetons (tokens) d'authentification pour l'utilisateur"""
 
@@ -49,22 +42,18 @@ class UserSignupSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Méthode pour créer un nouvel utilisateur dans la base de données"""
 
-        # Récupérer le mot de passe à partir des données validées
-        password = validated_data.get('password')
-
         # Récupérer le nom d'utilisateur à partir des données validées
         # Récupérer l'email à partir des données validées
         # Récupérer l'âge à partir des données validées
         # Récupérer le choix du consentement à partir des données validées
         user = User.objects.create_user(
             username=validated_data['username'],
-            email=validated_data['email'],
+            email=validated_data['email'], 
             age=validated_data['age'], 
             consent_choice=validated_data['consent_choice'],
-            password=password,  # Utiliser le mot de passe récupéré
         )
         # Définir le mot de passe haché à partir des données validées
-        user.set_password(password)
+        user.set_password(validated_data['password'])
         user.save()
         return user
 

@@ -20,10 +20,14 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from user.views import SignupView
 from api.views import (
-    ProjectViewSet,
-    UserContributorsViewSet,
-    IssueViewSet,
-    CommentViewSet
+    ProjectListViewSet,
+    ProjectDetailViewSet,
+    UserContributorsListViewSet,
+    UserContributorsDetailViewSet,
+    IssueListViewSet,
+    IssueDetailViewSet,
+    CommentListViewSet,
+    CommentDetailViewSet
 )
 
 
@@ -31,18 +35,14 @@ from api.views import (
 router = SimpleRouter()
 
 # Enregistrement des vues avec le routeur simple
-# Ne pas utiliser .as_view() pour les ViewSets enregistrées avec le routeur
-router.register(r"projects", ProjectViewSet, basename="projects")
-#router.register(r"project-detail", ProjectViewSet, basename="project-detail")
+router.register(r"users", UserContributorsListViewSet, basename="users")
+router.register(r"user-contributors-detail", UserContributorsDetailViewSet, basename="user-contributors-detail")
 
-router.register(r"users", UserContributorsViewSet, basename="users")
-#router.register(r"user-contributors-detail", UserContributorsDetailViewSet, basename="user-contributors-detail")
+router.register(r"issues", IssueListViewSet, basename="issues")
+router.register(r"issue-detail", IssueDetailViewSet, basename="issue-detail")
 
-router.register(r"issues", IssueViewSet, basename="issues")
-#router.register(r"issue-detail", IssueDetailViewSet, basename="issue-detail")
-
-router.register(r"comments", CommentViewSet, basename="comments")
-#router.register(r"comment-detail", CommentDetailViewSet, basename="comment-detail")
+router.register(r"comments", CommentListViewSet, basename="comments")
+router.register(r"comment-detail", CommentDetailViewSet, basename="comment-detail")
 
 
 urlpatterns = [
@@ -53,14 +53,15 @@ urlpatterns = [
     path('api/login/', TokenObtainPairView.as_view(), name='obtain_token'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='refresh_token'),
 
-    path('api/projects/', ProjectViewSet.as_view({'get': 'list', 'post': 'create'}), name='project-list'),
-    path('api/projects/<int:pk>/', ProjectViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='project-detail'),
+    # Ne pas utiliser .as_view() pour les ViewSets enregistrées avec le routeur
+    path('api/projects/', ProjectListViewSet.as_view({'get': 'list', 'post': 'create'}), name='project-list'),
+    path('api/projects/<int:pk>/', ProjectDetailViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='project-detail'),
 
-    path('api/issues/', IssueViewSet.as_view({'get': 'list', 'post': 'create'}), name='issue-list'),
-    path('api/issues/<int:pk>/', IssueViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='issue-detail'),
+    path('api/issues/', IssueListViewSet.as_view({'get': 'list', 'post': 'create'}), name='issue-list'),
+    path('api/issues/<int:pk>/', IssueDetailViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='issue-detail'),
 
-    path('api/comments/', CommentViewSet.as_view({'get': 'list', 'post': 'create'}), name='comment-list'),
-    path('api/comments/<int:pk>/', CommentViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='comment-detail'),
+    path('api/comments/', CommentListViewSet.as_view({'get': 'list', 'post': 'create'}), name='comment-list'),
+    path('api/comments/<int:pk>/', CommentDetailViewSet.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}), name='comment-detail'),
 
     # Inclusion des URLs gérées par le routeur simple sous le préfixe "api/"
     path('api/', include(router.urls))
