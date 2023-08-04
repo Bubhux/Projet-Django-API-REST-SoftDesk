@@ -58,7 +58,6 @@ class UserSignupSerializer(serializers.ModelSerializer):
         # Récupérer le choix du consentement à partir des données validées
         user = User.objects.create_user(
             username=validated_data['username'],
-            email=validated_data['email'],
             age=validated_data['age'], 
             consent_choice=validated_data['consent_choice'],
             password=password,  # Utiliser le mot de passe récupéré
