@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 # Types de projet possibles
-TYPES = [('BACKEND', 'BACKEND'), ('FRONTEND', 'FRONTEND'), ('iOS', 'iOS'), ('ANDROID', 'ANDROID')]
+TYPES = [('BACKEND', 'BACKEND'), ('FRONTEND', 'FRONTEND'), ('IOS', 'IOS'), ('ANDROID', 'ANDROID')]
 
 # Rôles possibles des utilisateurs dans un projet
 ROLES = [('AUTHOR', 'AUTHOR'), ('CONTRIBUTOR', 'CONTRIBUTOR')]
