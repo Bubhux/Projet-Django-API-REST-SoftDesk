@@ -1,4 +1,4 @@
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) ![Built with Django REST Framework](/SoftDesk/static/badges/built-with-django-rest-framework.svg) ![API RESTful](/SoftDesk/static/badges/api-restful.svg)   
+[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) ![Built with Django REST Framework](/static/badges/built-with-django-rest-framework.svg) ![API RESTful](/static/badges/api-restful.svg)   
 
 # Menu   
 1. **[Informations générales](#informations-générales)**   
