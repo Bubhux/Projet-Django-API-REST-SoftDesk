@@ -1,8 +1,11 @@
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from django.contrib.auth import get_user_model
 
 from api.models import Comment, Contributor, Issue, Project
 
+
+User = get_user_model()
 
 class ProjectListSerializer(serializers.ModelSerializer):
     """Sérialiseur pour afficher une liste d'objets Project.
@@ -13,8 +16,8 @@ class ProjectListSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Project
-        fields = ['author', 'id']
-        read_only__fields = ('author', 'id')
+        fields = ['author', 'id', 'title', 'description']
+        #read_only__fields = ('author', 'id')
 
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
@@ -57,8 +60,8 @@ class ContributorListSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Contributor
-        fields = ['user', 'project']
-        read_only_fields = ('user', 'project', 'id')
+        fields = ['user', 'project', 'role']
+        #read_only_fields = ('user', 'project', 'id')
 
 
 class ContributorDetailSerializer(serializers.ModelSerializer):
@@ -100,10 +103,12 @@ class IssueListSerializer(serializers.ModelSerializer):
     Il inclut les champs 'title', 'created_time', 'author' et 'id' dans la réponse,
     qui seront en lecture seule.
     """
+    assignee_id = serializers.PrimaryKeyRelatedField(source='assignee.user', queryset=User.objects.all(), required=False, allow_null=True)
+
     class Meta:
         model = Issue
-        fields = ['title', 'created_time', 'author', 'id']
-        read_only_fields = ('title', 'created_time', 'author', 'id')
+        fields = ['title', 'tag', 'created_time', 'author', 'id', 'description', 'assignee_id']
+        #read_only_fields = ('title', 'created_time', 'author', 'id'
 
 
 class IssueDetailSerializer(serializers.ModelSerializer):
@@ -115,10 +120,11 @@ class IssueDetailSerializer(serializers.ModelSerializer):
     Le champ 'comments' est un SerializerMethodField qui permet d'inclure les détails des objets Comment associés.
     """
     comments = SerializerMethodField()
+    assignee = serializers.PrimaryKeyRelatedField(queryset=Contributor.objects.all(), allow_null=False)
 
     class Meta:
         model = Issue
-        fields = ['title', 'description', 'created_time', 'priority', 'tag', 'status', 'author', 'id', 'comments']
+        fields = ['title', 'description', 'created_time', 'priority', 'tag', 'status', 'author', 'id', 'comments', 'assignee']
 
     def get_comments(self, instance):
         """Obtient les détails des objets Comment associés à l'objet Issue.
@@ -147,7 +153,7 @@ class CommentListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ['author', 'id']
-        read_only_fields = ('author', 'issue', 'id')
+        #read_only_fields = ('author', 'issue', 'id')
 
 
 class CommentDetailSerializer(serializers.ModelSerializer):
