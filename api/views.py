@@ -1,8 +1,9 @@
-from rest_framework import status
+from rest_framework import status, serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import get_object_or_404
+from django.contrib.auth import get_user_model
 
 from api.models import Project, Issue, Contributor, Comment
 from api.permissions import ProjectPermissions, ContributorPermissions, IssuePermissions, CommentPermissions
@@ -19,6 +20,8 @@ from api.serializers import (
 from user.serializers import UserSignupSerializer
 from user.models import User
 
+
+User = get_user_model()
 
 class MultipleSerializerMixin:
     """Mixin pour utiliser plusieurs classes de sérialiseur dans une vue."""
@@ -193,7 +196,39 @@ class IssueViewSet(MultipleSerializerMixin, ModelViewSet):
         """Sauvegarde un nouvel objet Issue associé à l'objet Project spécifié et à l'auteur actuellement connecté."""
         project_pk = self.kwargs.get('project_pk')
         project = self.get_project(project_pk)
-        serializer.save(project=project, author=self.request.user)
+        
+        assignee_id = self.request.data.get('assignee')
+        print(f"Assignee ID from request data: {assignee_id}")
+        
+        if assignee_id:
+            try:
+                assignee = get_user_model().objects.get(id=assignee_id)
+                serializer.save(project=project, author=self.request.user, assignee=assignee)
+                print(f"Assignee found: {assignee}")
+            except get_user_model().DoesNotExist:
+                print("Assignee not found")
+                try:
+                    assignee = get_user_model().objects.get(id=assignee_id)
+                except get_user_model().DoesNotExist:
+                    raise serializers.ValidationError("Invalid assignee ID")
+            
+        else:
+            serializer.save(project=project, author=self.request.user)
+
+    def create(self, request, project_pk):
+        """Crée un nouvel objet Issue associé à l'objet Project spécifié."""
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def destroy(self, request, project_pk, pk):
+        """Supprime l'objet Issue spécifié associé à l'objet Project spécifié."""
+        project = self.get_project(project_pk)
+        issue = self.get_object()
+        issue.delete()
+        return Response('Issue successfully deleted.', status=status.HTTP_204_NO_CONTENT)
+
 
     def create(self, request, project_pk):
         """Crée un nouvel objet Issue associé à l'objet Project spécifié."""

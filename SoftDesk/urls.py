@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.routers import SimpleRouter
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-
 from user.views import SignupView
 from api.views import (
     ProjectViewSet,
@@ -31,21 +30,20 @@ from api.views import (
     AdminCommentViewSet
 )
 
-
 # Création du routeur simple
 router = SimpleRouter()
 
 # Enregistrement des vues avec le routeur simple
-router.register(r"projects/?", ProjectViewSet, basename="projects")
-router.register(r"contributors/?", UserContributorsViewSet, basename="contributors")
-router.register(r"issues/?", IssueViewSet, basename="issues")
-router.register(r"comments/?", CommentViewSet, basename="comments")
+router.register(r"projects", ProjectViewSet, basename="projects")
+router.register(r"projects/(?P<project_pk>\d+)/users", UserContributorsViewSet, basename="project-users")
+router.register(r"projects/(?P<project_pk>\d+)/issues", IssueViewSet, basename="project-issues")
+router.register(r"projects/(?P<project_pk>\d+)/issues/(?P<issue_pk>\d+)/comments", CommentViewSet, basename="issue-comments")
 
-router.register(r'admin/users', AdminUserViewSet, basename='admin-users')
-router.register(r'admin/projects', AdminProjectViewSet, basename='admin-projects')
-router.register(r'admin/issues', AdminIssueViewSet, basename='admin-issues')
-router.register(r'admin/comments', AdminCommentViewSet, basename='admin-comments')
-router.register(r'admin/contributors', AdminUserContibutorViewSet, basename='admin-contributors')
+router.register(r"admin/users", AdminUserViewSet, basename="admin-users")
+router.register(r"admin/projects", AdminProjectViewSet, basename="admin-projects")
+router.register(r"admin/contributors", AdminUserContibutorViewSet, basename="admin-contributors")
+router.register(r"admin/issues", AdminIssueViewSet, basename="admin-issues")
+router.register(r"admin/comments", AdminCommentViewSet, basename="admin-comments")
 
 urlpatterns = [
     path('admin/', admin.site.urls),

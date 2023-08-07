@@ -47,15 +47,20 @@ class ContributorPermissions(permissions.BasePermission):
         - Pour les autres méthodes (POST, PUT, DELETE), vérifie si l'utilisateur connecté est l'auteur du projet.
     """
     def has_permission(self, request, view):
-        # Récupérer le projet spécifié par la clé primaire 'project_pk' dans l'URL.
-        project = get_object_or_404(Project, id=view.kwargs['project_pk'])
+        try:
+            # Récupérer le projet spécifié par la clé primaire 'project_pk' dans l'URL.
+            project = get_object_or_404(Project, id=view.kwargs['project_pk'])
 
-        if request.method in permissions.SAFE_METHODS:
-            # Pour les méthodes sécurisées (GET, HEAD, OPTIONS), autorise l'accès aux contributeurs du projet.
-            return project in Project.objects.filter(contributors__user=request.user)
-        else:
-            # Pour les autres méthodes (POST, PUT, DELETE), vérifie si l'utilisateur connecté est l'auteur du projet.
-            return request.user == project.author
+            if request.method in permissions.SAFE_METHODS:
+                # Pour les méthodes sécurisées (GET, HEAD, OPTIONS), autorise l'accès aux contributeurs du projet.
+                return project in Project.objects.filter(contributors__user=request.user)
+            else:
+                # Pour les autres méthodes (POST, PUT, DELETE), vérifie si l'utilisateur connecté est l'auteur du projet.
+                return request.user == project.author
+        except KeyError:
+            # Si la clé 'project_pk' n'est pas trouvée dans le dictionnaire view.kwargs,
+            # renvoyer False pour refuser l'accès.
+            return False
 
 
 class IssuePermissions(permissions.BasePermission):

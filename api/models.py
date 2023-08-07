@@ -68,7 +68,8 @@ class Issue(models.Model):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='issue_author')
 
     # Relation avec l'utilisateur assigné au problème (un contributeur)
-    assignee = models.ForeignKey(to=Contributor, on_delete=models.CASCADE, related_name='issue_assignee')
+    #assignee = models.ForeignKey(to=Contributor, on_delete=models.CASCADE, related_name='issue_assignee', null=True)
+    assignee = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='assigned_issues', null=True)
 
     # Relation avec le projet auquel le problème est lié
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE, related_name='issues')
