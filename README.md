@@ -260,9 +260,9 @@ flake8 --format=html --htmldir=flake-report
   Un dossier ```migrations``` contenant les fichiers de configuration pour la base de données. &rarr; ([migrations](user/migrations))   
   Á la racine du dossier ```user``` les fichiers tels que views.py, models.py, serializers.py. &rarr; ([user](user))   
 
--**Le dossier user**   
+-**Le dossier SoftDesk**   
   Le dossier est une apps Django qui contient :   
-  Contenant les fichiers de configuration du projet. &rarr; ([migrations](SoftDesk))   
+  Les fichiers de configuration du projet.   
   Á la racine du dossier ```SoftDesk``` les fichiers tels que settings.py, urls.py. &rarr; ([SoftDesk](SoftDesk))   
 
 -**Le dossier static**   
