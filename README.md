@@ -1,4 +1,4 @@
-![Static Badge](/static/badges/build-with-python.svg) ![Static Badge](/static/badges/build-with-django-drf.svg) ![Static Badge](/static/badges/api-restful.svg)
+![Static Badge](/static/badges/build-with-python.svg) ![Static Badge](/static/badges/use-postman.svg) ![Static Badge](/static/badges/build-with-django-drf.svg) ![Static Badge](/static/badges/api-restful.svg)
 
 # Menu   
 1. **[Informations générales](#informations-générales)**   
