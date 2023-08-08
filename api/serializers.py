@@ -60,7 +60,7 @@ class ContributorListSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Contributor
-        fields = ['user', 'project', 'role']
+        fields = ['user', 'project', 'id', 'role']
         #read_only_fields = ('user', 'project', 'id')
 
 
@@ -152,7 +152,7 @@ class CommentListSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Comment
-        fields = ['author', 'id']
+        fields = ['author', 'id', 'description']
         #read_only_fields = ('author', 'issue', 'id')
 
 

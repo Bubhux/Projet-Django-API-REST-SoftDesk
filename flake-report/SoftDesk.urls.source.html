@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>SoftDesk\urls.py - flake8 annotated source</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <h1>
+            <a href="SoftDesk.urls.report.html">
+               <img src="back.svg" alt="&#x2B05;">
+               SoftDesk\urls.py source
+            </a>
+         </h1>
+
+         <div id="doc">
+            <div id="l1"
+               class="code sev- "><tt><i>1</i> <span class="sd">&quot;&quot;&quot;SoftDesk URL Configuration</span></tt>
+            </div>
+            <div id="l2"
+               class="code sev- "><tt><i>2</i> &nbsp;</tt>
+            </div>
+            <div id="l3"
+               class="code sev- "><tt><i>3</i> <span class="sd">The `urlpatterns` list routes URLs to views. For more information please see:</span></tt>
+            </div>
+            <div id="l4"
+               class="code sev- "><tt><i>4</i> <span class="sd">    https://docs.djangoproject.com/en/3.2/topics/http/urls/</span></tt>
+            </div>
+            <div id="l5"
+               class="code sev- "><tt><i>5</i> <span class="sd">Examples:</span></tt>
+            </div>
+            <div id="l6"
+               class="code sev- "><tt><i>6</i> <span class="sd">Function views</span></tt>
+            </div>
+            <div id="l7"
+               class="code sev- "><tt><i>7</i> <span class="sd">    1. Add an import:  from my_app import views</span></tt>
+            </div>
+            <div id="l8"
+               class="code sev- "><tt><i>8</i> <span class="sd">    2. Add a URL to urlpatterns:  path(&#39;&#39;, views.home, name=&#39;home&#39;)</span></tt>
+            </div>
+            <div id="l9"
+               class="code sev- "><tt><i>9</i> <span class="sd">Class-based views</span></tt>
+            </div>
+            <div id="l10"
+               class="code sev- "><tt><i>10</i> <span class="sd">    1. Add an import:  from other_app.views import Home</span></tt>
+            </div>
+            <div id="l11"
+               class="code sev- "><tt><i>11</i> <span class="sd">    2. Add a URL to urlpatterns:  path(&#39;&#39;, Home.as_view(), name=&#39;home&#39;)</span></tt>
+            </div>
+            <div id="l12"
+               class="code sev- "><tt><i>12</i> <span class="sd">Including another URLconf</span></tt>
+            </div>
+            <div id="l13"
+               class="code sev- "><tt><i>13</i> <span class="sd">    1. Import the include() function: from django.urls import include, path</span></tt>
+            </div>
+            <div id="l14"
+               class="code sev- "><tt><i>14</i> <span class="sd">    2. Add a URL to urlpatterns:  path(&#39;blog/&#39;, include(&#39;blog.urls&#39;))</span></tt>
+            </div>
+            <div id="l15"
+               class="code sev- "><tt><i>15</i> <span class="sd">&quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l16"
+               class="code sev- "><tt><i>16</i> <span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">admin</span></tt>
+            </div>
+            <div id="l17"
+               class="code sev- "><tt><i>17</i> <span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">path</span><span class="p">,</span> <span class="n">include</span></tt>
+            </div>
+            <div id="l18"
+               class="code sev- "><tt><i>18</i> <span class="kn">from</span> <span class="nn">rest_framework.routers</span> <span class="kn">import</span> <span class="n">SimpleRouter</span></tt>
+            </div>
+            <div id="l19"
+               class="code sev- "><tt><i>19</i> <span class="kn">from</span> <span class="nn">rest_framework_simplejwt.views</span> <span class="kn">import</span> <span class="n">TokenObtainPairView</span><span class="p">,</span> <span class="n">TokenRefreshView</span></tt>
+            </div>
+            <div id="l20"
+               class="code sev- "><tt><i>20</i> <span class="kn">from</span> <span class="nn">user.views</span> <span class="kn">import</span> <span class="n">SignupView</span></tt>
+            </div>
+            <div id="l21"
+               class="code sev- "><tt><i>21</i> <span class="kn">from</span> <span class="nn">api.views</span> <span class="kn">import</span> <span class="p">(</span></tt>
+            </div>
+            <div id="l22"
+               class="code sev- "><tt><i>22</i>     <span class="n">ProjectViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l23"
+               class="code sev- "><tt><i>23</i>     <span class="n">UserContributorsViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l24"
+               class="code sev- "><tt><i>24</i>     <span class="n">IssueViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l25"
+               class="code sev- "><tt><i>25</i>     <span class="n">CommentViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l26"
+               class="code sev- "><tt><i>26</i>     <span class="n">AdminUserViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l27"
+               class="code sev- "><tt><i>27</i>     <span class="n">AdminProjectViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l28"
+               class="code sev- "><tt><i>28</i>     <span class="n">AdminUserContibutorViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l29"
+               class="code sev- "><tt><i>29</i>     <span class="n">AdminIssueViewSet</span><span class="p">,</span></tt>
+            </div>
+            <div id="l30"
+               class="code sev- "><tt><i>30</i>     <span class="n">AdminCommentViewSet</span></tt>
+            </div>
+            <div id="l31"
+               class="code sev- "><tt><i>31</i> <span class="p">)</span></tt>
+            </div>
+            <div id="l32"
+               class="code sev- "><tt><i>32</i> &nbsp;</tt>
+            </div>
+            <div id="l33"
+               class="code sev- "><tt><i>33</i> <span class="c1"># Création du routeur simple</span></tt>
+            </div>
+            <div id="l34"
+               class="code sev- "><tt><i>34</i> <span class="n">router</span> <span class="o">=</span> <span class="n">SimpleRouter</span><span class="p">()</span></tt>
+            </div>
+            <div id="l35"
+               class="code sev- "><tt><i>35</i> &nbsp;</tt>
+            </div>
+            <div id="l36"
+               class="code sev- "><tt><i>36</i> <span class="c1"># Enregistrement des vues avec le routeur simple</span></tt>
+            </div>
+            <div id="l37"
+               class="code sev- "><tt><i>37</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;projects&quot;</span><span class="p">,</span> <span class="n">ProjectViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;projects&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l38"
+               class="code sev- "><tt><i>38</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;projects/(?P&lt;project_pk&gt;\d+)/users&quot;</span><span class="p">,</span> <span class="n">UserContributorsViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l39"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (131 > 119 characters)</li>
+               
+               </ul><tt><i>39</i> <span class="c1">#router.register(r&quot;projects/(?P&lt;project_pk&gt;\d+)/users/(?P&lt;contributor_pk&gt;\d+)&quot;, UserContributorsViewSet, basename=&quot;projects-users&quot;)</span></tt>
+            </div>
+            <div id="l40"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (130 > 119 characters)</li>
+               
+               </ul><tt><i>40</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;projects/(?P&lt;project_pk&gt;\d+)/users/(?P&lt;contributor_pk&gt;\d+)&#39;</span><span class="p">,</span> <span class="n">UserContributorsViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s1">&#39;projects-users&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l41"
+               class="code sev- "><tt><i>41</i> &nbsp;</tt>
+            </div>
+            <div id="l42"
+               class="code sev- "><tt><i>42</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;projects/(?P&lt;project_pk&gt;\d+)/issues&quot;</span><span class="p">,</span> <span class="n">IssueViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;issues&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l43"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (126 > 119 characters)</li>
+               
+               </ul><tt><i>43</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;projects/(?P&lt;project_pk&gt;\d+)/issues/(?P&lt;issue_pk&gt;\d+)/comments&quot;</span><span class="p">,</span> <span class="n">CommentViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;projects-issues&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l44"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (155 > 119 characters)</li>
+               
+               </ul><tt><i>44</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;projects/(?P&lt;project_pk&gt;\d+)/issues/(?P&lt;issue_pk&gt;\d+)/comments/(?P&lt;comment_pk&gt;\d+)&quot;</span><span class="p">,</span> <span class="n">CommentViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;projects-issues-comments&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l45"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (161 > 119 characters)</li>
+               
+               </ul><tt><i>45</i> <span class="c1">#router.register(r&quot;projects/(?P&lt;project_pk&gt;\d+)/issues/(?P&lt;issue_pk&gt;\d+)/comments/(?P&lt;comment_pk&gt;\d+)/update_comment&quot;, CommentViewSet, basename=&quot;update-comment&quot;)</span></tt>
+            </div>
+            <div id="l46"
+               class="code sev- "><tt><i>46</i> &nbsp;</tt>
+            </div>
+            <div id="l47"
+               class="code sev- "><tt><i>47</i> &nbsp;</tt>
+            </div>
+            <div id="l48"
+               class="code sev- "><tt><i>48</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;admin/users&quot;</span><span class="p">,</span> <span class="n">AdminUserViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;admin-users&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l49"
+               class="code sev- "><tt><i>49</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;admin/projects&quot;</span><span class="p">,</span> <span class="n">AdminProjectViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;admin-projects&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l50"
+               class="code sev- "><tt><i>50</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;admin/contributors&quot;</span><span class="p">,</span> <span class="n">AdminUserContibutorViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;admin-contributors&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l51"
+               class="code sev- "><tt><i>51</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;admin/issues&quot;</span><span class="p">,</span> <span class="n">AdminIssueViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;admin-issues&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l52"
+               class="code sev- "><tt><i>52</i> <span class="n">router</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;admin/comments&quot;</span><span class="p">,</span> <span class="n">AdminCommentViewSet</span><span class="p">,</span> <span class="n">basename</span><span class="o">=</span><span class="s2">&quot;admin-comments&quot;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l53"
+               class="code sev- "><tt><i>53</i> &nbsp;</tt>
+            </div>
+            <div id="l54"
+               class="code sev- "><tt><i>54</i> <span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span></tt>
+            </div>
+            <div id="l55"
+               class="code sev- "><tt><i>55</i>     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;admin/&#39;</span><span class="p">,</span> <span class="n">admin</span><span class="o">.</span><span class="n">site</span><span class="o">.</span><span class="n">urls</span><span class="p">),</span></tt>
+            </div>
+            <div id="l56"
+               class="code sev- "><tt><i>56</i>     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api-auth/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="s1">&#39;rest_framework.urls&#39;</span><span class="p">)),</span></tt>
+            </div>
+            <div id="l57"
+               class="code sev- "><tt><i>57</i> &nbsp;</tt>
+            </div>
+            <div id="l58"
+               class="code sev- "><tt><i>58</i>     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/signup/&#39;</span><span class="p">,</span> <span class="n">SignupView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;signup&#39;</span><span class="p">),</span></tt>
+            </div>
+            <div id="l59"
+               class="code sev- "><tt><i>59</i>     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/login/&#39;</span><span class="p">,</span> <span class="n">TokenObtainPairView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;obtain_token&#39;</span><span class="p">),</span></tt>
+            </div>
+            <div id="l60"
+               class="code sev- "><tt><i>60</i>     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/token/refresh/&#39;</span><span class="p">,</span> <span class="n">TokenRefreshView</span><span class="o">.</span><span class="n">as_view</span><span class="p">(),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">),</span></tt>
+            </div>
+            <div id="l61"
+               class="code sev- "><tt><i>61</i> &nbsp;</tt>
+            </div>
+            <div id="l62"
+               class="code sev- "><tt><i>62</i>     <span class="c1"># Inclusion des URLs gérées par le routeur simple sous le préfixe &quot;api/&quot;</span></tt>
+            </div>
+            <div id="l63"
+               class="code sev- "><tt><i>63</i>     <span class="n">path</span><span class="p">(</span><span class="s1">&#39;api/&#39;</span><span class="p">,</span> <span class="n">include</span><span class="p">(</span><span class="n">router</span><span class="o">.</span><span class="n">urls</span><span class="p">))</span></tt>
+            </div>
+            <div id="l64"
+               class="code sev- "><tt><i>64</i> <span class="p">]</span></tt>
+            </div>
+            
+         </div>
+      </div>
+   </body>
+</html>

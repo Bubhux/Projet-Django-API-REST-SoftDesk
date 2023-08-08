@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>api\models.py - flake8 annotated source</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <h1>
+            <a href="api.models.report.html">
+               <img src="back.svg" alt="&#x2B05;">
+               api\models.py source
+            </a>
+         </h1>
+
+         <div id="doc">
+            <div id="l1"
+               class="code sev-1  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-1">
+                        F401
+                     </span>
+                     'django.contrib.auth.models.AbstractUser' imported but unused</li>
+               
+               </ul><tt><i>1</i> <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">AbstractUser</span></tt>
+            </div>
+            <div id="l2"
+               class="code sev- "><tt><i>2</i> <span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span></tt>
+            </div>
+            <div id="l3"
+               class="code sev- "><tt><i>3</i> <span class="kn">from</span> <span class="nn">django.conf</span> <span class="kn">import</span> <span class="n">settings</span></tt>
+            </div>
+            <div id="l4"
+               class="code sev- "><tt><i>4</i> &nbsp;</tt>
+            </div>
+            <div id="l5"
+               class="code sev- "><tt><i>5</i> &nbsp;</tt>
+            </div>
+            <div id="l6"
+               class="code sev- "><tt><i>6</i> <span class="c1"># Types de projet possibles</span></tt>
+            </div>
+            <div id="l7"
+               class="code sev- "><tt><i>7</i> <span class="n">TYPES</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;BACKEND&#39;</span><span class="p">,</span> <span class="s1">&#39;BACKEND&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;FRONTEND&#39;</span><span class="p">,</span> <span class="s1">&#39;FRONTEND&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;IOS&#39;</span><span class="p">,</span> <span class="s1">&#39;IOS&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;ANDROID&#39;</span><span class="p">,</span> <span class="s1">&#39;ANDROID&#39;</span><span class="p">)]</span></tt>
+            </div>
+            <div id="l8"
+               class="code sev- "><tt><i>8</i> &nbsp;</tt>
+            </div>
+            <div id="l9"
+               class="code sev- "><tt><i>9</i> <span class="c1"># Rôles possibles des utilisateurs dans un projet</span></tt>
+            </div>
+            <div id="l10"
+               class="code sev- "><tt><i>10</i> <span class="n">ROLES</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;AUTHOR&#39;</span><span class="p">,</span> <span class="s1">&#39;AUTHOR&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;CONTRIBUTOR&#39;</span><span class="p">,</span> <span class="s1">&#39;CONTRIBUTOR&#39;</span><span class="p">)]</span></tt>
+            </div>
+            <div id="l11"
+               class="code sev- "><tt><i>11</i> &nbsp;</tt>
+            </div>
+            <div id="l12"
+               class="code sev- "><tt><i>12</i> <span class="c1"># Tags possibles pour les problèmes (issues)</span></tt>
+            </div>
+            <div id="l13"
+               class="code sev- "><tt><i>13</i> <span class="n">TAGS</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;BUG&#39;</span><span class="p">,</span> <span class="s1">&#39;BUG&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;TASK&#39;</span><span class="p">,</span> <span class="s1">&#39;TASK&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;UPGRADE&#39;</span><span class="p">,</span> <span class="s1">&#39;UPGRADE&#39;</span><span class="p">)]</span></tt>
+            </div>
+            <div id="l14"
+               class="code sev- "><tt><i>14</i> &nbsp;</tt>
+            </div>
+            <div id="l15"
+               class="code sev- "><tt><i>15</i> <span class="c1"># Priorités possibles pour les problèmes (issues)</span></tt>
+            </div>
+            <div id="l16"
+               class="code sev- "><tt><i>16</i> <span class="n">PRIORITIES</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;LOW&#39;</span><span class="p">,</span> <span class="s1">&#39;LOW&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;MEDIUM&#39;</span><span class="p">,</span> <span class="s1">&#39;MEDIUM&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;HIGH&#39;</span><span class="p">,</span> <span class="s1">&#39;HIGH&#39;</span><span class="p">)]</span></tt>
+            </div>
+            <div id="l17"
+               class="code sev- "><tt><i>17</i> &nbsp;</tt>
+            </div>
+            <div id="l18"
+               class="code sev- "><tt><i>18</i> <span class="c1"># Statuts possibles pour les problèmes (issues)</span></tt>
+            </div>
+            <div id="l19"
+               class="code sev- "><tt><i>19</i> <span class="n">STATUSES</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;TODO&#39;</span><span class="p">,</span> <span class="s1">&#39;TODO&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;IN PROGRESS&#39;</span><span class="p">,</span> <span class="s1">&#39;IN PROGRESS&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;DONE&#39;</span><span class="p">,</span> <span class="s1">&#39;DONE&#39;</span><span class="p">)]</span></tt>
+            </div>
+            <div id="l20"
+               class="code sev- "><tt><i>20</i> &nbsp;</tt>
+            </div>
+            <div id="l21"
+               class="code sev- "><tt><i>21</i> &nbsp;</tt>
+            </div>
+            <div id="l22"
+               class="code sev- "><tt><i>22</i> <span class="k">class</span> <span class="nc">Project</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span></tt>
+            </div>
+            <div id="l23"
+               class="code sev- "><tt><i>23</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe représentant un projet&quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l24"
+               class="code sev- "><tt><i>24</i> &nbsp;</tt>
+            </div>
+            <div id="l25"
+               class="code sev- "><tt><i>25</i>     <span class="c1"># Champs du projet</span></tt>
+            </div>
+            <div id="l26"
+               class="code sev- "><tt><i>26</i>     <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">155</span><span class="p">)</span></tt>
+            </div>
+            <div id="l27"
+               class="code sev- "><tt><i>27</i>     <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">)</span></tt>
+            </div>
+            <div id="l28"
+               class="code sev- "><tt><i>28</i>     <span class="n">type_development</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">TYPES</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span></tt>
+            </div>
+            <div id="l29"
+               class="code sev- "><tt><i>29</i>     <span class="c1"># Relation avec l&#39;auteur du projet (un utilisateur)</span></tt>
+            </div>
+            <div id="l30"
+               class="code sev- "><tt><i>30</i>     <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;author&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l31"
+               class="code sev- "><tt><i>31</i> &nbsp;</tt>
+            </div>
+            <div id="l32"
+               class="code sev- "><tt><i>32</i>     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+            </div>
+            <div id="l33"
+               class="code sev- "><tt><i>33</i>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span></tt>
+            </div>
+            <div id="l34"
+               class="code sev- "><tt><i>34</i> &nbsp;</tt>
+            </div>
+            <div id="l35"
+               class="code sev- "><tt><i>35</i> &nbsp;</tt>
+            </div>
+            <div id="l36"
+               class="code sev- "><tt><i>36</i> <span class="k">class</span> <span class="nc">Contributor</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span></tt>
+            </div>
+            <div id="l37"
+               class="code sev- "><tt><i>37</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe représentant un contributeur à un projet&quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l38"
+               class="code sev- "><tt><i>38</i> &nbsp;</tt>
+            </div>
+            <div id="l39"
+               class="code sev- "><tt><i>39</i>     <span class="c1"># Relation avec l&#39;utilisateur (contributeur)</span></tt>
+            </div>
+            <div id="l40"
+               class="code sev- "><tt><i>40</i>     <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span></tt>
+            </div>
+            <div id="l41"
+               class="code sev- "><tt><i>41</i>     <span class="c1"># Relation avec le projet auquel le contributeur participe</span></tt>
+            </div>
+            <div id="l42"
+               class="code sev- "><tt><i>42</i>     <span class="n">project</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">Project</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;contributors&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l43"
+               class="code sev- "><tt><i>43</i>     <span class="c1"># Rôle du contributeur dans le projet (parmi les choix définis dans la liste ROLES)</span></tt>
+            </div>
+            <div id="l44"
+               class="code sev- "><tt><i>44</i>     <span class="n">role</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">ROLES</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;CONTRIBUTOR&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l45"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (130 > 119 characters)</li>
+               
+               </ul><tt><i>45</i>     <span class="c1"># Définition d&#39;une contrainte d&#39;unicité pour que le même contributeur ne puisse pas être associé au même projet plusieurs fois</span></tt>
+            </div>
+            <div id="l46"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E301
+                     </span>
+                     Expected 1 blank line, found 0</li>
+               
+               </ul><tt><i>46</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l47"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (138 > 119 characters)</li>
+               
+               </ul><tt><i>47</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Définition d&#39;une contrainte d&#39;unicité pour que le même contributeur ne puisse pas être associé au même projet plusieurs fois&quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l48"
+               class="code sev- "><tt><i>48</i>         <span class="n">unique_together</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;project_id&#39;</span><span class="p">,</span> <span class="s1">&#39;user_id&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l49"
+               class="code sev- "><tt><i>49</i> &nbsp;</tt>
+            </div>
+            <div id="l50"
+               class="code sev- "><tt><i>50</i>     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+            </div>
+            <div id="l51"
+               class="code sev- "><tt><i>51</i>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span></tt>
+            </div>
+            <div id="l52"
+               class="code sev- "><tt><i>52</i> &nbsp;</tt>
+            </div>
+            <div id="l53"
+               class="code sev- "><tt><i>53</i> &nbsp;</tt>
+            </div>
+            <div id="l54"
+               class="code sev- "><tt><i>54</i> <span class="k">class</span> <span class="nc">Issue</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span></tt>
+            </div>
+            <div id="l55"
+               class="code sev- "><tt><i>55</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe représentant un problème (issue) lié à un projet&quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l56"
+               class="code sev- "><tt><i>56</i> &nbsp;</tt>
+            </div>
+            <div id="l57"
+               class="code sev- "><tt><i>57</i>     <span class="c1"># Champs du problème</span></tt>
+            </div>
+            <div id="l58"
+               class="code sev- "><tt><i>58</i>     <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">155</span><span class="p">)</span></tt>
+            </div>
+            <div id="l59"
+               class="code sev- "><tt><i>59</i>     <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">)</span></tt>
+            </div>
+            <div id="l60"
+               class="code sev- "><tt><i>60</i>     <span class="n">created_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></tt>
+            </div>
+            <div id="l61"
+               class="code sev- "><tt><i>61</i> &nbsp;</tt>
+            </div>
+            <div id="l62"
+               class="code sev- "><tt><i>62</i>     <span class="c1"># Relation avec l&#39;auteur du problème (un utilisateur)</span></tt>
+            </div>
+            <div id="l63"
+               class="code sev- "><tt><i>63</i>     <span class="n">priority</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">PRIORITIES</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;LOW&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l64"
+               class="code sev- "><tt><i>64</i>     <span class="n">tag</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">TAGS</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span></tt>
+            </div>
+            <div id="l65"
+               class="code sev- "><tt><i>65</i>     <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">choices</span><span class="o">=</span><span class="n">STATUSES</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;TODO&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l66"
+               class="code sev- "><tt><i>66</i> &nbsp;</tt>
+            </div>
+            <div id="l67"
+               class="code sev- "><tt><i>67</i>     <span class="c1"># Relation avec l&#39;auteur du problème (un utilisateur)</span></tt>
+            </div>
+            <div id="l68"
+               class="code sev- "><tt><i>68</i>     <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;issue_author&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l69"
+               class="code sev- "><tt><i>69</i> &nbsp;</tt>
+            </div>
+            <div id="l70"
+               class="code sev- "><tt><i>70</i>     <span class="c1"># Relation avec l&#39;utilisateur assigné au problème (un contributeur)</span></tt>
+            </div>
+            <div id="l71"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+               </ul><tt><i>71</i>     <span class="c1">#assignee = models.ForeignKey(to=Contributor, on_delete=models.CASCADE, related_name=&#39;issue_assignee&#39;, null=True)</span></tt>
+            </div>
+            <div id="l72"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (130 > 119 characters)</li>
+               
+               </ul><tt><i>72</i>     <span class="n">assignee</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;assigned_issues&#39;</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></tt>
+            </div>
+            <div id="l73"
+               class="code sev- "><tt><i>73</i> &nbsp;</tt>
+            </div>
+            <div id="l74"
+               class="code sev- "><tt><i>74</i>     <span class="c1"># Relation avec le projet auquel le problème est lié</span></tt>
+            </div>
+            <div id="l75"
+               class="code sev- "><tt><i>75</i>     <span class="n">project</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">Project</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;issues&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l76"
+               class="code sev- "><tt><i>76</i> &nbsp;</tt>
+            </div>
+            <div id="l77"
+               class="code sev- "><tt><i>77</i>     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+            </div>
+            <div id="l78"
+               class="code sev- "><tt><i>78</i>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">title</span></tt>
+            </div>
+            <div id="l79"
+               class="code sev- "><tt><i>79</i> &nbsp;</tt>
+            </div>
+            <div id="l80"
+               class="code sev- "><tt><i>80</i> &nbsp;</tt>
+            </div>
+            <div id="l81"
+               class="code sev- "><tt><i>81</i> <span class="k">class</span> <span class="nc">Comment</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span></tt>
+            </div>
+            <div id="l82"
+               class="code sev- "><tt><i>82</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Classe représentant un commentaire lié à un problème (issue)&quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l83"
+               class="code sev- "><tt><i>83</i> &nbsp;</tt>
+            </div>
+            <div id="l84"
+               class="code sev- "><tt><i>84</i>     <span class="n">description</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">2048</span><span class="p">)</span></tt>
+            </div>
+            <div id="l85"
+               class="code sev- "><tt><i>85</i>     <span class="n">created_time</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></tt>
+            </div>
+            <div id="l86"
+               class="code sev- "><tt><i>86</i> &nbsp;</tt>
+            </div>
+            <div id="l87"
+               class="code sev- "><tt><i>87</i>     <span class="c1"># Relation avec l&#39;auteur du commentaire (un utilisateur)</span></tt>
+            </div>
+            <div id="l88"
+               class="code sev- "><tt><i>88</i>     <span class="n">author</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">AUTH_USER_MODEL</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;comment_author&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l89"
+               class="code sev- "><tt><i>89</i>     <span class="c1"># Relation avec le problème auquel le commentaire est lié</span></tt>
+            </div>
+            <div id="l90"
+               class="code sev- "><tt><i>90</i>     <span class="n">issue</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">to</span><span class="o">=</span><span class="n">Issue</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;comments&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l91"
+               class="code sev- "><tt><i>91</i> &nbsp;</tt>
+            </div>
+            <div id="l92"
+               class="code sev- "><tt><i>92</i>     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span></tt>
+            </div>
+            <div id="l93"
+               class="code sev- "><tt><i>93</i>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">username</span></tt>
+            </div>
+            
+         </div>
+      </div>
+   </body>
+</html>

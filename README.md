@@ -1,4 +1,4 @@
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com) ![Built with Django REST Framework](/static/badges/built-with-django-rest-framework.svg) ![API RESTful](/static/badges/api-restful.svg)   
+![Static Badge](/static/badges/build-with-python.svg) ![Static Badge](/static/badges/build-with-django-drf.svg) ![Static Badge](/static/badges/api-restful.svg)
 
 # Menu   
 1. **[Informations générales](#informations-générales)**   
@@ -170,31 +170,31 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 #### Liste des end points de l'API (détaillés dans la [documentation]() :   
 
-| #   | End points d'API                                                          | Méthode HTTP   | URL (base: http://127.0.0.1:8000)              |
-|-----|---------------------------------------------------------------------------|----------------|------------------------------------------------|
-|  1  | Permet de refresh le token                                                | POST           | /api/token/refresh/                            |
-|  2  | Inscription de l'utilisateur                                              | POST           | /api/signup/                                   |
-|  3  | Connexion de l'utilisateur                                                | POST           | /api/login/                                    |
-|     |                                                                           |                |                                                |
-|  4  | Récupérer la liste de tous les projets                                    | GET            | /api/projects/                                 |
-|  5  | Récupérer les détails d'un projet via son id                              | GET            | /api/projects/{id}/                            |
-|  6  | Créer un projet                                                           | POST           | /api/projects/{id}/                            |
-|  7  | Mettre à jour un projet                                                   | PUT            | /api/projects/{id}/                            |
-|  8  | Supprimer un projet et ses problèmes                                      | DELETE         | /api/projects/{id}/                            |
-|     |                                                                           |                |                                                |
-|  9  | Récupérer la liste des contributeurs                                      | GET            | /api/contributors/                             |
-| 10  | Ajouter ou modifier un contibuteur à un projet                            | POST           | /api/contributors/{id}/                        |
-| 11  | Supprimer un contributeur d'un projet                                     | DELETE         | /api/contributors/{id}/                        |
-|     |                                                                           |                |                                                |
-| 12  | Récupérer la liste des problèmes                                          | GET            | /api/issues/                                   |
-| 13  | Créer un problème dans un projet                                          | POST           | /api/issues/{id}/                              |
-| 14  | Mettre à jour un problème dans un projet                                  | PUT            | /api/issues/{id}/                              |
-| 15  | Supprimer un problème d'un projet                                         | DELETE         | /api/issues/{id}/                              |
-|     |                                                                           |                |                                                |
-| 16  | Récupérer la liste des commentaires                                       | GET            | /api/comments/                                 |
-| 17  | Ajouter ou modifier un commentaire                                        | POST           | /api/comments/{id}/                            |
-| 18  | Modifier un commentaire                                                   | PUT            | /api/comments/{id}/                            |
-| 19  | Supprimer un commentaire                                                  | DELETE         | /api/comments/{id}/                            |
+| #   | End points d'API                                            | Méthode HTTP   | URL (base: http://127.0.0.1:8000)                                |
+|-----|-------------------------------------------------------------|----------------|------------------------------------------------------------------|
+|  1  | Permet de refresh le token                                  | POST           | /api/token/refresh/                                              | 
+|  2  | Inscription de l'utilisateur                                | POST           | /api/signup/                                                     | 
+|  3  | Connexion de l'utilisateur                                  | POST           | /api/login/                                                      |
+|     |                                                             |                |                                                                  |  
+|  4  | Récupérer la liste de tous les projets                      | GET            | /api/projects/                                                   |
+|  5  | Récupérer les détails d'un projet via son id                | GET            | /api/projects/:project_id/                                       |
+|  6  | Créer un projet                                             | POST           | /api/projects/                                                   |
+|  7  | Mettre à jour un projet                                     | PUT            | /api/projects/:project_id/                                       |
+|  8  | Supprimer un projet et ses problèmes                        | DELETE         | /api/projects/:project_id/                                       |
+|     |                                                             |                |                                                                  |
+|  9  | Récupérer la liste des contributeurs                        | GET            | /api/projects/:project_id/users/                                 |
+| 10  | Ajouter ou modifier un contibuteur à un projet              | POST           | /api/projects/:project_id/users/                                 |
+| 11  | Supprimer un contributeur d'un projet                       | DELETE         | /api/projects/:project_id/users/:contributor_id/                 |
+|     |                                                             |                |                                                                  |
+| 12  | Récupérer la liste des problèmes                            | GET            | /api/projects/:project_id/issues/                                |
+| 13  | Créer un problème dans un projet                            | POST           | /api/projects/:project_id/issues/                                |
+| 14  | Mettre à jour un problème dans un projet                    | PUT            | /api/projects/:project_id/issues/:issue_id/                      |
+| 15  | Supprimer un problème d'un projet                           | DELETE         | /api/projects/:project_id/issues/:issue_id/                      |
+|     |                                                             |                |                                                                  |
+| 16  | Récupérer la liste des commentaires                         | GET            | /api/projects/:project_id/issues/:issue_id/comments/             |
+| 17  | Ajouter ou modifier un commentaire                          | POST           | /api/projects/:project_id/issues/:issue_id/comments/             |
+| 18  | Modifier un commentaire                                     | PUT            | /api/projects/:project_id/issues/:issue_id/comments/:comment_id/ |
+| 19  | Supprimer un commentaire                                    | DELETE         | /api/projects/:project_id/issues/:issue_id/comments/:comment_id/ |
 
 
 <div id="liste-endpoints-admin"></div>

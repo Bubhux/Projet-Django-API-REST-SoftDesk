@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import User
+from .utils import contributed_projects_count
 
 class UserAdmin(admin.ModelAdmin):
     """

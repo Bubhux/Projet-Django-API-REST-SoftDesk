@@ -1,0 +1,3 @@
+[flake8]
+exclude = .git, env, .gitignore, static, static, *tests.py, **/templates/, **/migrations/
+max-line-length = 119

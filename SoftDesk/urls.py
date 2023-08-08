@@ -35,9 +35,15 @@ router = SimpleRouter()
 
 # Enregistrement des vues avec le routeur simple
 router.register(r"projects", ProjectViewSet, basename="projects")
-router.register(r"projects/(?P<project_pk>\d+)/users", UserContributorsViewSet, basename="project-users")
-router.register(r"projects/(?P<project_pk>\d+)/issues", IssueViewSet, basename="project-issues")
-router.register(r"projects/(?P<project_pk>\d+)/issues/(?P<issue_pk>\d+)/comments", CommentViewSet, basename="issue-comments")
+router.register(r"projects/(?P<project_pk>\d+)/users", UserContributorsViewSet, basename="users")
+#router.register(r"projects/(?P<project_pk>\d+)/users/(?P<contributor_pk>\d+)", UserContributorsViewSet, basename="projects-users")
+router.register(r'projects/(?P<project_pk>\d+)/users/(?P<contributor_pk>\d+)', UserContributorsViewSet, basename='projects-users')
+
+router.register(r"projects/(?P<project_pk>\d+)/issues", IssueViewSet, basename="issues")
+router.register(r"projects/(?P<project_pk>\d+)/issues/(?P<issue_pk>\d+)/comments", CommentViewSet, basename="projects-issues")
+router.register(r"projects/(?P<project_pk>\d+)/issues/(?P<issue_pk>\d+)/comments/(?P<comment_pk>\d+)", CommentViewSet, basename="projects-issues-comments")
+#router.register(r"projects/(?P<project_pk>\d+)/issues/(?P<issue_pk>\d+)/comments/(?P<comment_pk>\d+)/update_comment", CommentViewSet, basename="update-comment")
+
 
 router.register(r"admin/users", AdminUserViewSet, basename="admin-users")
 router.register(r"admin/projects", AdminProjectViewSet, basename="admin-projects")
