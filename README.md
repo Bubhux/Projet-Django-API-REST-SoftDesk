@@ -1,4 +1,4 @@
-![Static Badge](/static/badges/build-with-python.svg) ![Static Badge](/static/badges/build-with-django-drf.svg) ![Static Badge](/static/badges/api-restful.svg)
+![Static Badge](/static/badges/build-with-python.svg) ![Static Badge](/static/badges/use-postman.svg) ![Static Badge](/static/badges/build-with-django-drf.svg) ![Static Badge](/static/badges/api-restful.svg)
 
 # Menu   
 1. **[Informations générales](#informations-générales)**   
@@ -82,9 +82,9 @@ Programme élaboré avec les logiciels suivants:
 -Une fois installer ouvrer le cmd (terminal) placer vous dans le dossier principal (dossier racine).   
 
 **Taper dans votre terminal:**   
-```bash   
+```bash
 python -m venv env
-```   
+```
 Un répertoire appelé env doit être créé.   
 
 
@@ -94,15 +94,15 @@ Un répertoire appelé env doit être créé.
 -Placez-vous avec le terminal dans le dossier principale (dossier racine).   
 
 **Pour activer l'environnement virtuel créé, il vous suffit de taper dans votre terminal:**   
-```bash   
+```bash
 env\Scripts\activate.bat
-```   
+```
 -Ce qui ajoutera à chaque ligne de commande de votre terminal (env):   
 **-Pour désactiver l'environnement virtuel, il suffit de taper dans votre terminal:**   
 
-```bash   
+```bash
 deactivate
-```   
+```
 
 <div id="installation-librairies"></div>
 
@@ -114,9 +114,9 @@ deactivate
 
 **Taper dans votre terminal la commande:**   
 
-```bash  
+```bash
 pip install -r requirements.txt
-```   
+```
 
 <div id="execution-application"></div>
 
@@ -138,11 +138,6 @@ python manage.py runserver
 Se rendre à l'adresse.   
 &rarr; http://127.0.0.1:8000/   
 
-**Page de connexion**   
-
-![Page de connexion](static/pictures/screen-login.png/)
-
-
 Il est possible de naviguer dans l'API avec différents outils :
 
 - la plateforme [Postman](https://www.postman.com/) ;
@@ -158,11 +153,11 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 **Tapez dans votre terminal les commandes:**   
 
-```bash   
+```bash
 >>> python manage.py shell
 >>> from user.models import User
 >>> user = User.objects.create_user(username='nom_utilisateur', password='password_utilisateur', age=18, consent_choice=True, is_active=True, is_staff=False)
-```   
+``` 
 *Note : Remplacez nom_utilisateur, password_utilisateur, age=18 par les valeurs que vous souhaitez.*   
 
 
@@ -234,7 +229,7 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 ```bash
 pip install flake8-html
-```   
+```
 - Créer un fichier ```.flake8``` si il n'existe pas.   
 - **Ecrire le texte suivant dedans:**   
 
@@ -245,9 +240,10 @@ max-line-length = 119
 ```   
 
 **Tapez dans votre terminal la commande:**   
+
 ```bash
 flake8 --format=html --htmldir=flake-report
-```   
+```
 - Un rapport sera généré dans le dossier flake8.   
 
 
@@ -264,9 +260,9 @@ flake8 --format=html --htmldir=flake-report
   Un dossier ```migrations``` contenant les fichiers de configuration pour la base de données. &rarr; ([migrations](user/migrations))   
   Á la racine du dossier ```user``` les fichiers tels que views.py, models.py, serializers.py. &rarr; ([user](user))   
 
--**Le dossier user**   
+-**Le dossier SoftDesk**   
   Le dossier est une apps Django qui contient :   
-  Contenant les fichiers de configuration du projet. &rarr; ([migrations](SoftDesk))   
+  Les fichiers de configuration du projet.   
   Á la racine du dossier ```SoftDesk``` les fichiers tels que settings.py, urls.py. &rarr; ([SoftDesk](SoftDesk))   
 
 -**Le dossier static**   
