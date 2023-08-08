@@ -66,7 +66,7 @@ Programme élaboré avec les logiciels suivants:
 -Django 3.2.19   
 -DRF 3.12.4   
 -Postman   
- &rarr; https://www.postman.com/
+ &rarr; https://www.postman.com/   
 -Visual Studio Code 1.70.2   
 -Windows 7 professionnel SP1   
 - Les scripts python s'exécutent depuis un terminal.   
@@ -82,6 +82,7 @@ Programme élaboré avec les logiciels suivants:
 -Une fois installer ouvrer le cmd (terminal) placer vous dans le dossier principal (dossier racine).   
 
 **Taper dans votre terminal:**   
+
 ```bash
 python -m venv env
 ```
@@ -157,7 +158,7 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 >>> python manage.py shell
 >>> from user.models import User
 >>> user = User.objects.create_user(username='nom_utilisateur', password='password_utilisateur', age=18, consent_choice=True, is_active=True, is_staff=False)
-``` 
+```
 *Note : Remplacez nom_utilisateur, password_utilisateur, age=18 par les valeurs que vous souhaitez.*   
 
 
@@ -237,7 +238,7 @@ pip install flake8-html
 [flake8]
 exclude = .git, env, .gitignore, static, static, *tests.py, **/templates/, **/migrations/
 max-line-length = 119
-```   
+```
 
 **Tapez dans votre terminal la commande:**   
 
