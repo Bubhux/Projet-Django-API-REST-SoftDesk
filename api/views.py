@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.generics import get_object_or_404
 from django.contrib.auth import get_user_model
+from rest_framework.decorators import action
 
 from api.models import Project, Issue, Contributor, Comment
 from api.permissions import ProjectPermissions, ContributorPermissions, IssuePermissions, CommentPermissions
@@ -105,9 +106,13 @@ class ProjectViewSet(MultipleSerializerMixin, ModelViewSet):
         """Sauvegarde l'objet Project avec l'utilisateur actuellement connecté en tant qu'auteur."""
         serializer.save(author=self.request.user)
 
-    def get_queryset(self):
-        """Renvoie les projets auxquels l'utilisateur actuel est contributeur."""
-        return self.queryset.filter(contributors__user=self.request.user)
+    @action(detail=False, methods=['GET'])
+    def user_projects(self, request):
+        """Renvoie tous les projets où l'utilisateur est à la fois l'auteur et le contributeur."""
+        user = self.request.user
+        projects = Project.objects.filter(author=user, contributors__user=user)
+        serializer = ProjectListSerializer(projects, many=True)
+        return Response(serializer.data)
 
     def put(self, request, pk=None):
         """Met à jour l'objet Project spécifié par la clé primaire passée dans l'URL."""
@@ -164,7 +169,7 @@ class UserContributorsViewSet(MultipleSerializerMixin, ModelViewSet):
             except User.DoesNotExist:
                 return Response('This user does not exist.', status=status.HTTP_400_BAD_REQUEST)
 
-    def destroy(self, request, project_pk, contributor_pk):
+    def destroy(self, request, project_pk, pk):
         """Supprime le contributeur spécifié de l'objet Project spécifié."""
         project = self.get_project(project_pk)
         contributor = self.get_object()
@@ -214,21 +219,17 @@ class IssueViewSet(MultipleSerializerMixin, ModelViewSet):
             
         else:
             serializer.save(project=project, author=self.request.user)
-
-    def create(self, request, project_pk):
-        """Crée un nouvel objet Issue associé à l'objet Project spécifié."""
-        serializer = self.serializer_class(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        self.perform_create(serializer)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-    def destroy(self, request, project_pk, pk):
-        """Supprime l'objet Issue spécifié associé à l'objet Project spécifié."""
+    
+    def update(self, request, project_pk, pk):
+        """Met à jour l'objet Issue spécifié associé à l'objet Project spécifié."""
         project = self.get_project(project_pk)
         issue = self.get_object()
-        issue.delete()
-        return Response('Issue successfully deleted.', status=status.HTTP_204_NO_CONTENT)
 
+        serializer = self.serializer_class(issue, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(serializer.data)
 
     def create(self, request, project_pk):
         """Crée un nouvel objet Issue associé à l'objet Project spécifié."""
@@ -280,3 +281,4 @@ class CommentViewSet(MultipleSerializerMixin, ModelViewSet):
     def perform_destroy(self, instance):
         """Supprime l'objet Comment spécifié."""
         instance.delete()
+

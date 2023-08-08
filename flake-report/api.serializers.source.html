@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>api\serializers.py - flake8 annotated source</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <h1>
+            <a href="api.serializers.report.html">
+               <img src="back.svg" alt="&#x2B05;">
+               api\serializers.py source
+            </a>
+         </h1>
+
+         <div id="doc">
+            <div id="l1"
+               class="code sev- "><tt><i>1</i> <span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span></tt>
+            </div>
+            <div id="l2"
+               class="code sev-1  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-1">
+                        F401
+                     </span>
+                     'rest_framework.serializers.ModelSerializer' imported but unused</li>
+               
+               </ul><tt><i>2</i> <span class="kn">from</span> <span class="nn">rest_framework.serializers</span> <span class="kn">import</span> <span class="n">ModelSerializer</span><span class="p">,</span> <span class="n">SerializerMethodField</span></tt>
+            </div>
+            <div id="l3"
+               class="code sev- "><tt><i>3</i> <span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">get_user_model</span></tt>
+            </div>
+            <div id="l4"
+               class="code sev- "><tt><i>4</i> &nbsp;</tt>
+            </div>
+            <div id="l5"
+               class="code sev- "><tt><i>5</i> <span class="kn">from</span> <span class="nn">api.models</span> <span class="kn">import</span> <span class="n">Comment</span><span class="p">,</span> <span class="n">Contributor</span><span class="p">,</span> <span class="n">Issue</span><span class="p">,</span> <span class="n">Project</span></tt>
+            </div>
+            <div id="l6"
+               class="code sev- "><tt><i>6</i> &nbsp;</tt>
+            </div>
+            <div id="l7"
+               class="code sev- "><tt><i>7</i> &nbsp;</tt>
+            </div>
+            <div id="l8"
+               class="code sev- "><tt><i>8</i> <span class="n">User</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span></tt>
+            </div>
+            <div id="l9"
+               class="code sev- "><tt><i>9</i> &nbsp;</tt>
+            </div>
+            <div id="l10"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E302
+                     </span>
+                     Expected 2 blank lines, found 1</li>
+               
+               </ul><tt><i>10</i> <span class="k">class</span> <span class="nc">ProjectListSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l11"
+               class="code sev- "><tt><i>11</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher une liste d&#39;objets Project.</span></tt>
+            </div>
+            <div id="l12"
+               class="code sev- "><tt><i>12</i> &nbsp;</tt>
+            </div>
+            <div id="l13"
+               class="code sev- "><tt><i>13</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter une liste d&#39;objets Project</span></tt>
+            </div>
+            <div id="l14"
+               class="code sev- "><tt><i>14</i> <span class="sd">    lorsqu&#39;ils sont récupérés via une requête GET sur l&#39;endpoint &#39;api/projects/&#39;.</span></tt>
+            </div>
+            <div id="l15"
+               class="code sev- "><tt><i>15</i> <span class="sd">    Il inclut uniquement les champs &#39;author&#39; et &#39;id&#39; dans la réponse, qui seront en lecture seule.</span></tt>
+            </div>
+            <div id="l16"
+               class="code sev- "><tt><i>16</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l17"
+               class="code sev- "><tt><i>17</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l18"
+               class="code sev- "><tt><i>18</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Project</span></tt>
+            </div>
+            <div id="l19"
+               class="code sev- "><tt><i>19</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l20"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+               </ul><tt><i>20</i>         <span class="c1">#read_only__fields = (&#39;author&#39;, &#39;id&#39;)</span></tt>
+            </div>
+            <div id="l21"
+               class="code sev- "><tt><i>21</i> &nbsp;</tt>
+            </div>
+            <div id="l22"
+               class="code sev- "><tt><i>22</i> &nbsp;</tt>
+            </div>
+            <div id="l23"
+               class="code sev- "><tt><i>23</i> <span class="k">class</span> <span class="nc">ProjectDetailSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l24"
+               class="code sev- "><tt><i>24</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher les détails d&#39;un objet Project.</span></tt>
+            </div>
+            <div id="l25"
+               class="code sev- "><tt><i>25</i> &nbsp;</tt>
+            </div>
+            <div id="l26"
+               class="code sev- "><tt><i>26</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter les détails d&#39;un objet Project</span></tt>
+            </div>
+            <div id="l27"
+               class="code sev- "><tt><i>27</i> <span class="sd">    lorsqu&#39;il est récupéré via une requête GET sur l&#39;endpoint &#39;api/projects/&lt;pk&gt;/&#39;.</span></tt>
+            </div>
+            <div id="l28"
+               class="code sev- "><tt><i>28</i> <span class="sd">    Il inclut les champs &#39;author&#39;, &#39;id&#39;, &#39;title&#39;, &#39;description&#39;, &#39;type&#39; et &#39;issues&#39; dans la réponse.</span></tt>
+            </div>
+            <div id="l29"
+               class="code sev- "><tt><i>29</i> <span class="sd">    Le champ &#39;issues&#39; est un SerializerMethodField qui permet d&#39;inclure les détails des objets Issue associés.</span></tt>
+            </div>
+            <div id="l30"
+               class="code sev- "><tt><i>30</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l31"
+               class="code sev- "><tt><i>31</i>     <span class="n">issues</span> <span class="o">=</span> <span class="n">SerializerMethodField</span><span class="p">()</span></tt>
+            </div>
+            <div id="l32"
+               class="code sev- "><tt><i>32</i> &nbsp;</tt>
+            </div>
+            <div id="l33"
+               class="code sev- "><tt><i>33</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l34"
+               class="code sev- "><tt><i>34</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Project</span></tt>
+            </div>
+            <div id="l35"
+               class="code sev- "><tt><i>35</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;type_development&#39;</span><span class="p">,</span> <span class="s1">&#39;issues&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l36"
+               class="code sev- "><tt><i>36</i> &nbsp;</tt>
+            </div>
+            <div id="l37"
+               class="code sev- "><tt><i>37</i>     <span class="k">def</span> <span class="nf">get_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span></tt>
+            </div>
+            <div id="l38"
+               class="code sev- "><tt><i>38</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtient les détails des objets Issue associés à l&#39;objet Project.</span></tt>
+            </div>
+            <div id="l39"
+               class="code sev- "><tt><i>39</i> &nbsp;</tt>
+            </div>
+            <div id="l40"
+               class="code sev- "><tt><i>40</i> <span class="sd">        Cette méthode est utilisée pour obtenir les détails des objets Issue associés à l&#39;objet Project</span></tt>
+            </div>
+            <div id="l41"
+               class="code sev- "><tt><i>41</i> <span class="sd">        et les inclure dans la réponse. Elle utilise un queryset pour filtrer les objets Issue</span></tt>
+            </div>
+            <div id="l42"
+               class="code sev- "><tt><i>42</i> <span class="sd">        qui sont liés à l&#39;objet Project spécifié par &#39;instance.id&#39;.</span></tt>
+            </div>
+            <div id="l43"
+               class="code sev- "><tt><i>43</i> &nbsp;</tt>
+            </div>
+            <div id="l44"
+               class="code sev- "><tt><i>44</i> <span class="sd">        Args:</span></tt>
+            </div>
+            <div id="l45"
+               class="code sev- "><tt><i>45</i> <span class="sd">            instance: Instance de l&#39;objet Project pour lequel on souhaite obtenir les issues associés.</span></tt>
+            </div>
+            <div id="l46"
+               class="code sev- "><tt><i>46</i> &nbsp;</tt>
+            </div>
+            <div id="l47"
+               class="code sev- "><tt><i>47</i> <span class="sd">        Returns:</span></tt>
+            </div>
+            <div id="l48"
+               class="code sev- "><tt><i>48</i> <span class="sd">            Une liste de dictionnaires représentant les détails des objets Issue associés.</span></tt>
+            </div>
+            <div id="l49"
+               class="code sev- "><tt><i>49</i> <span class="sd">        &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l50"
+               class="code sev- "><tt><i>50</i>         <span class="n">queryset</span> <span class="o">=</span> <span class="n">Issue</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="n">instance</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></tt>
+            </div>
+            <div id="l51"
+               class="code sev- "><tt><i>51</i>         <span class="k">return</span> <span class="n">IssueListSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">data</span></tt>
+            </div>
+            <div id="l52"
+               class="code sev- "><tt><i>52</i> &nbsp;</tt>
+            </div>
+            <div id="l53"
+               class="code sev- "><tt><i>53</i> &nbsp;</tt>
+            </div>
+            <div id="l54"
+               class="code sev- "><tt><i>54</i> <span class="k">class</span> <span class="nc">ContributorListSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l55"
+               class="code sev- "><tt><i>55</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher une liste d&#39;objets Contributor.</span></tt>
+            </div>
+            <div id="l56"
+               class="code sev- "><tt><i>56</i> &nbsp;</tt>
+            </div>
+            <div id="l57"
+               class="code sev- "><tt><i>57</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter une liste d&#39;objets Contributor</span></tt>
+            </div>
+            <div id="l58"
+               class="code sev- "><tt><i>58</i> <span class="sd">    lorsqu&#39;ils sont récupérés via une requête GET sur l&#39;endpoint &#39;api/users/&#39;.</span></tt>
+            </div>
+            <div id="l59"
+               class="code sev- "><tt><i>59</i> <span class="sd">    Il inclut uniquement les champs &#39;user&#39; et &#39;project&#39; dans la réponse, qui seront en lecture seule.</span></tt>
+            </div>
+            <div id="l60"
+               class="code sev- "><tt><i>60</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l61"
+               class="code sev- "><tt><i>61</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l62"
+               class="code sev- "><tt><i>62</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Contributor</span></tt>
+            </div>
+            <div id="l63"
+               class="code sev- "><tt><i>63</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l64"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+               </ul><tt><i>64</i>         <span class="c1">#read_only_fields = (&#39;user&#39;, &#39;project&#39;, &#39;id&#39;)</span></tt>
+            </div>
+            <div id="l65"
+               class="code sev- "><tt><i>65</i> &nbsp;</tt>
+            </div>
+            <div id="l66"
+               class="code sev- "><tt><i>66</i> &nbsp;</tt>
+            </div>
+            <div id="l67"
+               class="code sev- "><tt><i>67</i> <span class="k">class</span> <span class="nc">ContributorDetailSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l68"
+               class="code sev- "><tt><i>68</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher les détails d&#39;un objet Contributor.</span></tt>
+            </div>
+            <div id="l69"
+               class="code sev- "><tt><i>69</i> &nbsp;</tt>
+            </div>
+            <div id="l70"
+               class="code sev- "><tt><i>70</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter les détails d&#39;un objet Contributor</span></tt>
+            </div>
+            <div id="l71"
+               class="code sev- "><tt><i>71</i> <span class="sd">    lorsqu&#39;il est récupéré via une requête GET sur l&#39;endpoint &#39;api/users/&lt;pk&gt;/&#39;.</span></tt>
+            </div>
+            <div id="l72"
+               class="code sev- "><tt><i>72</i> <span class="sd">    Il inclut les champs &#39;user&#39;, &#39;project&#39;, &#39;role&#39;, &#39;id&#39; et &#39;projects&#39; dans la réponse.</span></tt>
+            </div>
+            <div id="l73"
+               class="code sev- "><tt><i>73</i> <span class="sd">    Le champ &#39;projects&#39; est un SerializerMethodField qui permet d&#39;inclure les détails des objets Project associés.</span></tt>
+            </div>
+            <div id="l74"
+               class="code sev- "><tt><i>74</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l75"
+               class="code sev- "><tt><i>75</i>     <span class="n">projects</span> <span class="o">=</span> <span class="n">SerializerMethodField</span><span class="p">()</span></tt>
+            </div>
+            <div id="l76"
+               class="code sev- "><tt><i>76</i> &nbsp;</tt>
+            </div>
+            <div id="l77"
+               class="code sev- "><tt><i>77</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l78"
+               class="code sev- "><tt><i>78</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Contributor</span></tt>
+            </div>
+            <div id="l79"
+               class="code sev- "><tt><i>79</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;project&#39;</span><span class="p">,</span> <span class="s1">&#39;role&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;projects&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l80"
+               class="code sev- "><tt><i>80</i> &nbsp;</tt>
+            </div>
+            <div id="l81"
+               class="code sev- "><tt><i>81</i>     <span class="k">def</span> <span class="nf">get_projects</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span></tt>
+            </div>
+            <div id="l82"
+               class="code sev- "><tt><i>82</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtient les détails des objets Project associés à l&#39;objet Contributor.</span></tt>
+            </div>
+            <div id="l83"
+               class="code sev- "><tt><i>83</i> &nbsp;</tt>
+            </div>
+            <div id="l84"
+               class="code sev- "><tt><i>84</i> <span class="sd">        Cette méthode est utilisée pour obtenir les détails des objets Project associés à l&#39;objet Contributor</span></tt>
+            </div>
+            <div id="l85"
+               class="code sev- "><tt><i>85</i> <span class="sd">        et les inclure dans la réponse. Elle utilise un queryset pour filtrer les objets Project</span></tt>
+            </div>
+            <div id="l86"
+               class="code sev- "><tt><i>86</i> <span class="sd">        qui sont liés à l&#39;objet Contributor spécifié par &#39;instance.id&#39;.</span></tt>
+            </div>
+            <div id="l87"
+               class="code sev- "><tt><i>87</i> &nbsp;</tt>
+            </div>
+            <div id="l88"
+               class="code sev- "><tt><i>88</i> <span class="sd">        Args:</span></tt>
+            </div>
+            <div id="l89"
+               class="code sev- "><tt><i>89</i> <span class="sd">            instance: Instance de l&#39;objet Contributor pour lequel on souhaite obtenir les projets associés.</span></tt>
+            </div>
+            <div id="l90"
+               class="code sev- "><tt><i>90</i> &nbsp;</tt>
+            </div>
+            <div id="l91"
+               class="code sev- "><tt><i>91</i> <span class="sd">        Returns:</span></tt>
+            </div>
+            <div id="l92"
+               class="code sev- "><tt><i>92</i> <span class="sd">            Une liste de dictionnaires représentant les détails des objets Project associés.</span></tt>
+            </div>
+            <div id="l93"
+               class="code sev- "><tt><i>93</i> <span class="sd">        &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l94"
+               class="code sev- "><tt><i>94</i>         <span class="n">queryset</span> <span class="o">=</span> <span class="n">Project</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">contributors__id</span><span class="o">=</span><span class="n">instance</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></tt>
+            </div>
+            <div id="l95"
+               class="code sev- "><tt><i>95</i>         <span class="k">return</span> <span class="n">ProjectListSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">data</span></tt>
+            </div>
+            <div id="l96"
+               class="code sev- "><tt><i>96</i> &nbsp;</tt>
+            </div>
+            <div id="l97"
+               class="code sev- "><tt><i>97</i> &nbsp;</tt>
+            </div>
+            <div id="l98"
+               class="code sev- "><tt><i>98</i> <span class="k">class</span> <span class="nc">IssueListSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l99"
+               class="code sev- "><tt><i>99</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher une liste d&#39;objets Issue.</span></tt>
+            </div>
+            <div id="l100"
+               class="code sev- "><tt><i>100</i> &nbsp;</tt>
+            </div>
+            <div id="l101"
+               class="code sev- "><tt><i>101</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter une liste d&#39;objets Issue</span></tt>
+            </div>
+            <div id="l102"
+               class="code sev- "><tt><i>102</i> <span class="sd">    lorsqu&#39;ils sont récupérés via une requête GET sur l&#39;endpoint &#39;api/issues/&#39;.</span></tt>
+            </div>
+            <div id="l103"
+               class="code sev- "><tt><i>103</i> <span class="sd">    Il inclut les champs &#39;title&#39;, &#39;created_time&#39;, &#39;author&#39; et &#39;id&#39; dans la réponse,</span></tt>
+            </div>
+            <div id="l104"
+               class="code sev- "><tt><i>104</i> <span class="sd">    qui seront en lecture seule.</span></tt>
+            </div>
+            <div id="l105"
+               class="code sev- "><tt><i>105</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l106"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (138 > 119 characters)</li>
+               
+               </ul><tt><i>106</i>     <span class="n">assignee_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">PrimaryKeyRelatedField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;assignee.user&#39;</span><span class="p">,</span> <span class="n">queryset</span><span class="o">=</span><span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></tt>
+            </div>
+            <div id="l107"
+               class="code sev- "><tt><i>107</i> &nbsp;</tt>
+            </div>
+            <div id="l108"
+               class="code sev- "><tt><i>108</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l109"
+               class="code sev- "><tt><i>109</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Issue</span></tt>
+            </div>
+            <div id="l110"
+               class="code sev- "><tt><i>110</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">,</span> <span class="s1">&#39;created_time&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;assignee_id&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l111"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+               </ul><tt><i>111</i>         <span class="c1">#read_only_fields = (&#39;title&#39;, &#39;created_time&#39;, &#39;author&#39;, &#39;id&#39;</span></tt>
+            </div>
+            <div id="l112"
+               class="code sev- "><tt><i>112</i> &nbsp;</tt>
+            </div>
+            <div id="l113"
+               class="code sev- "><tt><i>113</i> &nbsp;</tt>
+            </div>
+            <div id="l114"
+               class="code sev- "><tt><i>114</i> <span class="k">class</span> <span class="nc">IssueDetailSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l115"
+               class="code sev- "><tt><i>115</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher les détails d&#39;un objet Issue.</span></tt>
+            </div>
+            <div id="l116"
+               class="code sev- "><tt><i>116</i> &nbsp;</tt>
+            </div>
+            <div id="l117"
+               class="code sev- "><tt><i>117</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter les détails d&#39;un objet Issue</span></tt>
+            </div>
+            <div id="l118"
+               class="code sev- "><tt><i>118</i> <span class="sd">    lorsqu&#39;il est récupéré via une requête GET sur l&#39;endpoint &#39;api/issues/&lt;pk&gt;/&#39;.</span></tt>
+            </div>
+            <div id="l119"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (139 > 119 characters)</li>
+               
+               </ul><tt><i>119</i> <span class="sd">    Il inclut les champs &#39;title&#39;, &#39;description&#39;, &#39;created_time&#39;, &#39;priority&#39;, &#39;tag&#39;, &#39;status&#39;, &#39;author&#39;, &#39;id&#39; et &#39;comments&#39; dans la réponse.</span></tt>
+            </div>
+            <div id="l120"
+               class="code sev- "><tt><i>120</i> <span class="sd">    Le champ &#39;comments&#39; est un SerializerMethodField qui permet d&#39;inclure les détails des objets Comment associés.</span></tt>
+            </div>
+            <div id="l121"
+               class="code sev- "><tt><i>121</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l122"
+               class="code sev- "><tt><i>122</i>     <span class="n">comments</span> <span class="o">=</span> <span class="n">SerializerMethodField</span><span class="p">()</span></tt>
+            </div>
+            <div id="l123"
+               class="code sev- "><tt><i>123</i>     <span class="n">assignee</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">PrimaryKeyRelatedField</span><span class="p">(</span><span class="n">queryset</span><span class="o">=</span><span class="n">Contributor</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">(),</span> <span class="n">allow_null</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></tt>
+            </div>
+            <div id="l124"
+               class="code sev- "><tt><i>124</i> &nbsp;</tt>
+            </div>
+            <div id="l125"
+               class="code sev- "><tt><i>125</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l126"
+               class="code sev- "><tt><i>126</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Issue</span></tt>
+            </div>
+            <div id="l127"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E501
+                     </span>
+                     Line too long (126 > 119 characters)</li>
+               
+               </ul><tt><i>127</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;created_time&#39;</span><span class="p">,</span> <span class="s1">&#39;priority&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;comments&#39;</span><span class="p">,</span> <span class="s1">&#39;assignee&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l128"
+               class="code sev- "><tt><i>128</i> &nbsp;</tt>
+            </div>
+            <div id="l129"
+               class="code sev- "><tt><i>129</i>     <span class="k">def</span> <span class="nf">get_comments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span></tt>
+            </div>
+            <div id="l130"
+               class="code sev- "><tt><i>130</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtient les détails des objets Comment associés à l&#39;objet Issue.</span></tt>
+            </div>
+            <div id="l131"
+               class="code sev- "><tt><i>131</i> &nbsp;</tt>
+            </div>
+            <div id="l132"
+               class="code sev- "><tt><i>132</i> <span class="sd">        Cette méthode est utilisée pour obtenir les détails des objets Comment associés à l&#39;objet Issue</span></tt>
+            </div>
+            <div id="l133"
+               class="code sev- "><tt><i>133</i> <span class="sd">        et les inclure dans la réponse. Elle utilise un queryset pour filtrer les objets Comment</span></tt>
+            </div>
+            <div id="l134"
+               class="code sev- "><tt><i>134</i> <span class="sd">        qui sont liés à l&#39;objet Issue spécifié par &#39;instance.id&#39;.</span></tt>
+            </div>
+            <div id="l135"
+               class="code sev- "><tt><i>135</i> &nbsp;</tt>
+            </div>
+            <div id="l136"
+               class="code sev- "><tt><i>136</i> <span class="sd">        Args:</span></tt>
+            </div>
+            <div id="l137"
+               class="code sev- "><tt><i>137</i> <span class="sd">            instance: Instance de l&#39;objet Issue pour lequel on souhaite obtenir les commentaires associés.</span></tt>
+            </div>
+            <div id="l138"
+               class="code sev- "><tt><i>138</i> &nbsp;</tt>
+            </div>
+            <div id="l139"
+               class="code sev- "><tt><i>139</i> <span class="sd">        Returns:</span></tt>
+            </div>
+            <div id="l140"
+               class="code sev- "><tt><i>140</i> <span class="sd">            Une liste de dictionnaires représentant les détails des objets Comment associés.</span></tt>
+            </div>
+            <div id="l141"
+               class="code sev- "><tt><i>141</i> <span class="sd">        &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l142"
+               class="code sev- "><tt><i>142</i>         <span class="n">queryset</span> <span class="o">=</span> <span class="n">Comment</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">issue_id</span><span class="o">=</span><span class="n">instance</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></tt>
+            </div>
+            <div id="l143"
+               class="code sev- "><tt><i>143</i>         <span class="k">return</span> <span class="n">CommentListSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">data</span></tt>
+            </div>
+            <div id="l144"
+               class="code sev- "><tt><i>144</i> &nbsp;</tt>
+            </div>
+            <div id="l145"
+               class="code sev- "><tt><i>145</i> &nbsp;</tt>
+            </div>
+            <div id="l146"
+               class="code sev- "><tt><i>146</i> <span class="k">class</span> <span class="nc">CommentListSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l147"
+               class="code sev- "><tt><i>147</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher une liste d&#39;objets Comment.</span></tt>
+            </div>
+            <div id="l148"
+               class="code sev- "><tt><i>148</i> &nbsp;</tt>
+            </div>
+            <div id="l149"
+               class="code sev- "><tt><i>149</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter une liste d&#39;objets Comment</span></tt>
+            </div>
+            <div id="l150"
+               class="code sev- "><tt><i>150</i> <span class="sd">    lorsqu&#39;ils sont récupérés via une requête GET sur l&#39;endpoint &#39;api/comments/&#39;.</span></tt>
+            </div>
+            <div id="l151"
+               class="code sev- "><tt><i>151</i> <span class="sd">    Il inclut les champs &#39;author&#39; et &#39;id&#39; dans la réponse, qui seront en lecture seule.</span></tt>
+            </div>
+            <div id="l152"
+               class="code sev- "><tt><i>152</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l153"
+               class="code sev- "><tt><i>153</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l154"
+               class="code sev- "><tt><i>154</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span></tt>
+            </div>
+            <div id="l155"
+               class="code sev- "><tt><i>155</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l156"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E265
+                     </span>
+                     Block comment should start with '# '</li>
+               
+               </ul><tt><i>156</i>         <span class="c1">#read_only_fields = (&#39;author&#39;, &#39;issue&#39;, &#39;id&#39;)</span></tt>
+            </div>
+            <div id="l157"
+               class="code sev- "><tt><i>157</i> &nbsp;</tt>
+            </div>
+            <div id="l158"
+               class="code sev- "><tt><i>158</i> &nbsp;</tt>
+            </div>
+            <div id="l159"
+               class="code sev- "><tt><i>159</i> <span class="k">class</span> <span class="nc">CommentDetailSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span></tt>
+            </div>
+            <div id="l160"
+               class="code sev- "><tt><i>160</i> <span class="w">    </span><span class="sd">&quot;&quot;&quot;Sérialiseur pour afficher les détails d&#39;un objet Comment.</span></tt>
+            </div>
+            <div id="l161"
+               class="code sev- "><tt><i>161</i> &nbsp;</tt>
+            </div>
+            <div id="l162"
+               class="code sev- "><tt><i>162</i> <span class="sd">    Ce sérialiseur est utilisé pour représenter les détails d&#39;un objet Comment</span></tt>
+            </div>
+            <div id="l163"
+               class="code sev- "><tt><i>163</i> <span class="sd">    lorsqu&#39;il est récupéré via une requête GET sur l&#39;endpoint &#39;api/comments/&lt;pk&gt;/&#39;.</span></tt>
+            </div>
+            <div id="l164"
+               class="code sev- "><tt><i>164</i> <span class="sd">    Il inclut les champs &#39;author&#39;, &#39;description&#39;, &#39;created_time&#39;, &#39;issue&#39;, &#39;id&#39; et &#39;issues&#39; dans la réponse.</span></tt>
+            </div>
+            <div id="l165"
+               class="code sev- "><tt><i>165</i> <span class="sd">    Le champ &#39;issues&#39; est un SerializerMethodField qui permet d&#39;inclure les détails des objets Issue associés.</span></tt>
+            </div>
+            <div id="l166"
+               class="code sev- "><tt><i>166</i> <span class="sd">    &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l167"
+               class="code sev- "><tt><i>167</i>     <span class="n">issues</span> <span class="o">=</span> <span class="n">SerializerMethodField</span><span class="p">()</span></tt>
+            </div>
+            <div id="l168"
+               class="code sev- "><tt><i>168</i> &nbsp;</tt>
+            </div>
+            <div id="l169"
+               class="code sev- "><tt><i>169</i>     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span></tt>
+            </div>
+            <div id="l170"
+               class="code sev- "><tt><i>170</i>         <span class="n">model</span> <span class="o">=</span> <span class="n">Comment</span></tt>
+            </div>
+            <div id="l171"
+               class="code sev- "><tt><i>171</i>         <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;created_time&#39;</span><span class="p">,</span> <span class="s1">&#39;issue&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;issues&#39;</span><span class="p">]</span></tt>
+            </div>
+            <div id="l172"
+               class="code sev- "><tt><i>172</i> &nbsp;</tt>
+            </div>
+            <div id="l173"
+               class="code sev- "><tt><i>173</i>     <span class="k">def</span> <span class="nf">get_issues</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">):</span></tt>
+            </div>
+            <div id="l174"
+               class="code sev- "><tt><i>174</i> <span class="w">        </span><span class="sd">&quot;&quot;&quot;Obtient les détails des objets Issue associés à l&#39;objet Comment.</span></tt>
+            </div>
+            <div id="l175"
+               class="code sev- "><tt><i>175</i> &nbsp;</tt>
+            </div>
+            <div id="l176"
+               class="code sev- "><tt><i>176</i> <span class="sd">        Cette méthode est utilisée pour obtenir les détails des objets Issue associés à l&#39;objet Comment</span></tt>
+            </div>
+            <div id="l177"
+               class="code sev- "><tt><i>177</i> <span class="sd">        et les inclure dans la réponse. Elle utilise un queryset pour filtrer les objets Issue</span></tt>
+            </div>
+            <div id="l178"
+               class="code sev- "><tt><i>178</i> <span class="sd">        qui sont liés à l&#39;objet Comment spécifié par &#39;instance.id&#39;.</span></tt>
+            </div>
+            <div id="l179"
+               class="code sev- "><tt><i>179</i> &nbsp;</tt>
+            </div>
+            <div id="l180"
+               class="code sev- "><tt><i>180</i> <span class="sd">        Args:</span></tt>
+            </div>
+            <div id="l181"
+               class="code sev- "><tt><i>181</i> <span class="sd">            instance: Instance de l&#39;objet Comment pour lequel on souhaite obtenir les issues associés.</span></tt>
+            </div>
+            <div id="l182"
+               class="code sev- "><tt><i>182</i> &nbsp;</tt>
+            </div>
+            <div id="l183"
+               class="code sev- "><tt><i>183</i> <span class="sd">        Returns:</span></tt>
+            </div>
+            <div id="l184"
+               class="code sev- "><tt><i>184</i> <span class="sd">            Une liste de dictionnaires représentant les détails des objets Issue associés.</span></tt>
+            </div>
+            <div id="l185"
+               class="code sev- "><tt><i>185</i> <span class="sd">        &quot;&quot;&quot;</span></tt>
+            </div>
+            <div id="l186"
+               class="code sev- "><tt><i>186</i>         <span class="n">queryset</span> <span class="o">=</span> <span class="n">Issue</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">project_id</span><span class="o">=</span><span class="n">instance</span><span class="o">.</span><span class="n">id</span><span class="p">)</span></tt>
+            </div>
+            <div id="l187"
+               class="code sev- "><tt><i>187</i>         <span class="k">return</span> <span class="n">IssueListSerializer</span><span class="p">(</span><span class="n">queryset</span><span class="p">,</span> <span class="n">many</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">data</span></tt>
+            </div>
+            
+         </div>
+      </div>
+   </body>
+</html>

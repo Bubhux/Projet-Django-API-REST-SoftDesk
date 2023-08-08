@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>flake8 violations: api\permissions.py</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+<script>
+function bindHandler(link) {
+   var code = link.getAttribute('data-code');
+   var key = location.pathname + '#' + code;
+
+   var ul = link.parentNode.querySelector('.details');
+   if (sessionStorage[key] != 'open') {
+      ul.style.display = 'none';
+   }
+   link.addEventListener('click', function (event) {
+      if (!ul.style.display || ul.style.display == 'none') {
+         ul.style.display = 'block';
+         sessionStorage[key] = 'open';
+      } else {
+         ul.style.display = 'none';
+         sessionStorage[key] = 'closed';
+      }
+   });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+   var links = document.querySelectorAll('#index > li > a');
+   for (var i = 0; i < links.length; i++) {
+      bindHandler(links[i]);
+   }
+});
+</script>
+   </head>
+   <body>
+      <div id="masthead" class="sev-2"></div>
+      <div id="page">
+         <p id="srclink">
+            <a title="View full annotated source"
+               href="api.permissions.source.html">
+               <img src="file.svg" alt="&#x2261;">
+            </a></p>
+         <h1>
+            <a href="index.html">
+               <img src="back.svg" alt="&#x2B05;">
+               api\permissions.py
+            </a>
+         </h1>
+
+         <ul id="index">
+         
+         <li>
+            <a data-code="E501">
+               <span class="count sev-2">
+                  10
+               </span>
+               <strong>E501:</strong> line too long (121 > 119 characters)
+               
+                  (and 6 similar)
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <p>Line too long (121 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l58">
+                  <tt><i>58</i>                 <span class="c1"># Pour les autres méthodes (POST, PUT, DELETE), vérifie si l&#39;utilisateur connecté est l&#39;auteur du projet.</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (120 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l75">
+                  <tt><i>75</i> <span class="sd">        - Vérifie si l&#39;utilisateur connecté est l&#39;auteur de l&#39;issue (pour les méthodes sécurisées - GET, HEAD, OPTIONS).</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (121 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l76">
+                  <tt><i>76</i> <span class="sd">        - Vérifie si l&#39;utilisateur connecté est un contributeur du projet (pour les autres méthodes - POST, PUT, DELETE).</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (127 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l85">
+                  <tt><i>85</i>                 <span class="c1"># Pour les méthodes sécurisées (GET, HEAD, OPTIONS), vérifie si l&#39;utilisateur connecté est l&#39;auteur de l&#39;issue.</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (127 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l93">
+                  <tt><i>93</i>             <span class="c1"># Pour les autres méthodes (POST, PUT, DELETE), on vérifie si l&#39;utilisateur connecté est un contributeur du projet.</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (125 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l99">
+                  <tt><i>99</i> <span class="sd">    Classe de permission personnalisée pour la vue de l&#39;API gérant les commentaires d&#39;un issue spécifique d&#39;un objet Project.</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (124 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l106">
+                  <tt><i>106</i> <span class="sd">        - Vérifie si l&#39;utilisateur connecté est l&#39;auteur du commentaire (pour les méthodes sécurisées - GET, HEAD, OPTIONS).</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (121 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l107">
+                  <tt><i>107</i> <span class="sd">        - Vérifie si l&#39;utilisateur connecté est un contributeur du projet (pour les autres méthodes - POST, PUT, DELETE).</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (141 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l115">
+                  <tt><i>115</i>                 <span class="c1"># Étape 2 : Pour les méthodes sécurisées (GET, HEAD, OPTIONS), vérifie si l&#39;utilisateur connecté est l&#39;auteur du commentaire.</span></tt>
+               </a>
+            </li><li>
+               
+               <p>Line too long (137 > 119 characters):</p>
+               
+               <a href="api.permissions.source.html#l123">
+                  <tt><i>123</i>             <span class="c1"># Étape 4 : Pour les autres méthodes (POST, PUT, DELETE), on vérifie si l&#39;utilisateur connecté est un contributeur du projet.</span></tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         <li>
+            <a data-code="W293">
+               <span class="count sev-2">
+                  2
+               </span>
+               <strong>W293:</strong> blank line contains whitespace
+               
+            </a>
+            <ul class="details">
+            <li>
+               
+               <a href="api.permissions.source.html#l24">
+                  <tt><i>24</i>             </tt>
+               </a>
+            </li><li>
+               
+               <a href="api.permissions.source.html#l29">
+                  <tt><i>29</i>             </tt>
+               </a>
+            </li>
+            </ul>
+         </li>
+         
+         </ul>
+      </div>
+   </body>
+</html>
