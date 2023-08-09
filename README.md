@@ -240,7 +240,7 @@ exclude = .git, env, .gitignore, static, static, *tests.py, **/templates/, **/mi
 max-line-length = 119
 <<<<<<< HEAD
 ```
-=======
+
 ignore = F401, W504, F811, F821
 ```   
 >>>>>>> development
