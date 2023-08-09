@@ -30,7 +30,7 @@
 - Inscription et connexion.   
 - Navigation au travers des end points de l'API.   
 
-Pour plus de détails sur le fonctionnement de cette API, se référer à sa [documentation](https://documenter.getpostman.com/view/26427645/2s9Xy2Ps1k) (Postman).   
+Pour plus de détails sur le fonctionnement de cette API, se référer à sa &rarr; [documentation](https://documenter.getpostman.com/view/26427645/2s9Xy2Ps1k) (Postman).   
 
 >_Testé sous Windows 7 - Python 3.7.2 - Django 3.2.20 - DRF 3.12.4_   
 
