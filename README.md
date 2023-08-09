@@ -238,11 +238,8 @@ pip install flake8-html
 [flake8]
 exclude = .git, env, .gitignore, static, static, *tests.py, **/templates/, **/migrations/
 max-line-length = 119
-```
-
 ignore = F401, W504, F811, F821
-```   
->>>>>>> development
+```
 
 **Tapez dans votre terminal la commande:**   
 
