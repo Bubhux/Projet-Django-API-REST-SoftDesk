@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import User
 from .utils import contributed_projects_count
 
+
 class UserAdmin(admin.ModelAdmin):
     """
     Administration des utilisateurs.
@@ -18,5 +19,6 @@ class UserAdmin(admin.ModelAdmin):
         return obj.contributor_set.count()
 
     contributed_projects_count.short_description = 'Nombre de projets contribués'
+
 
 admin.site.register(User, UserAdmin)

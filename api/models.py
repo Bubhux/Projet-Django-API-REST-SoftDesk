@@ -42,9 +42,11 @@ class Contributor(models.Model):
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE, related_name='contributors')
     # Rôle du contributeur dans le projet (parmi les choix définis dans la liste ROLES)
     role = models.CharField(choices=ROLES, max_length=11, default='CONTRIBUTOR')
-    # Définition d'une contrainte d'unicité pour que le même contributeur ne puisse pas être associé au même projet plusieurs fois
+
     class Meta:
-        """Définition d'une contrainte d'unicité pour que le même contributeur ne puisse pas être associé au même projet plusieurs fois"""
+        """Définition d'une contrainte d'unicité pour que le même contributeur
+           ne puisse pas être associé au même projet plusieurs fois
+        """
         unique_together = ('project_id', 'user_id')
 
     def __str__(self):
@@ -68,8 +70,11 @@ class Issue(models.Model):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='issue_author')
 
     # Relation avec l'utilisateur assigné au problème (un contributeur)
-    #assignee = models.ForeignKey(to=Contributor, on_delete=models.CASCADE, related_name='issue_assignee', null=True)
-    assignee = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='assigned_issues', null=True)
+    assignee = models.ForeignKey(
+        to=settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name='assigned_issues', null=True
+    )
 
     # Relation avec le projet auquel le problème est lié
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE, related_name='issues')

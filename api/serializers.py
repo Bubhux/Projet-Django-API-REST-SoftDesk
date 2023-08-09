@@ -7,6 +7,7 @@ from api.models import Comment, Contributor, Issue, Project
 
 User = get_user_model()
 
+
 class ProjectListSerializer(serializers.ModelSerializer):
     """Sérialiseur pour afficher une liste d'objets Project.
 
@@ -17,7 +18,6 @@ class ProjectListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = ['author', 'id', 'title', 'description']
-        #read_only__fields = ('author', 'id')
 
 
 class ProjectDetailSerializer(serializers.ModelSerializer):
@@ -61,7 +61,6 @@ class ContributorListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contributor
         fields = ['user', 'project', 'id', 'role']
-        #read_only_fields = ('user', 'project', 'id')
 
 
 class ContributorDetailSerializer(serializers.ModelSerializer):
@@ -103,12 +102,15 @@ class IssueListSerializer(serializers.ModelSerializer):
     Il inclut les champs 'title', 'created_time', 'author' et 'id' dans la réponse,
     qui seront en lecture seule.
     """
-    assignee_id = serializers.PrimaryKeyRelatedField(source='assignee.user', queryset=User.objects.all(), required=False, allow_null=True)
+    assignee_id = serializers.PrimaryKeyRelatedField(
+        source='assignee.user',
+        queryset=User.objects.all(),
+        required=False, allow_null=True
+    )
 
     class Meta:
         model = Issue
         fields = ['title', 'tag', 'created_time', 'author', 'id', 'description', 'assignee_id']
-        #read_only_fields = ('title', 'created_time', 'author', 'id'
 
 
 class IssueDetailSerializer(serializers.ModelSerializer):
@@ -116,7 +118,8 @@ class IssueDetailSerializer(serializers.ModelSerializer):
 
     Ce sérialiseur est utilisé pour représenter les détails d'un objet Issue
     lorsqu'il est récupéré via une requête GET sur l'endpoint 'api/issues/<pk>/'.
-    Il inclut les champs 'title', 'description', 'created_time', 'priority', 'tag', 'status', 'author', 'id' et 'comments' dans la réponse.
+    Il inclut les champs
+    'title', 'description', 'created_time', 'priority', 'tag', 'status', 'author', 'id' et 'comments' dans la réponse.
     Le champ 'comments' est un SerializerMethodField qui permet d'inclure les détails des objets Comment associés.
     """
     comments = SerializerMethodField()
@@ -124,7 +127,18 @@ class IssueDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Issue
-        fields = ['title', 'description', 'created_time', 'priority', 'tag', 'status', 'author', 'id', 'comments', 'assignee']
+        fields = [
+            'title',
+            'description',
+            'created_time',
+            'priority',
+            'tag',
+            'status',
+            'author',
+            'id',
+            'comments',
+            'assignee'
+        ]
 
     def get_comments(self, instance):
         """Obtient les détails des objets Comment associés à l'objet Issue.
@@ -153,7 +167,6 @@ class CommentListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = ['author', 'id', 'description']
-        #read_only_fields = ('author', 'issue', 'id')
 
 
 class CommentDetailSerializer(serializers.ModelSerializer):
@@ -185,4 +198,3 @@ class CommentDetailSerializer(serializers.ModelSerializer):
         """
         queryset = Issue.objects.filter(project_id=instance.id)
         return IssueListSerializer(queryset, many=True).data
-
