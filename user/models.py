@@ -3,8 +3,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.utils.translation import gettext_lazy as _
 
-#from api.models import Contributor
-
 
 def validate_min_age(value):
     min_age = 15
@@ -88,7 +86,7 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin):
     """Modèle d'utilisateur personnalisé"""
 
-    username = models.CharField(max_length=128, unique=True)  # Utilisation du champ "username" pour le nom d'utilisateur
+    username = models.CharField(max_length=128, unique=True)
     age = models.PositiveIntegerField(validators=[validate_min_age])
     consent_choice = models.BooleanField(default=False)
     email = models.EmailField(blank=True, null=True)  # Champ e-mail facultatif
@@ -99,7 +97,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)
     # Champ pour stocker le nombre de projets contribués par l'utilisateur
-    #contributed_projects_count = models.PositiveIntegerField(default=0)
 
     USERNAME_FIELD = 'username'  # Utilisation du champ "username" pour l'authentification
     REQUIRED_FIELDS = ['age', 'consent_choice']  # Champs requis pour la création d'un utilisateur
@@ -121,8 +118,3 @@ class User(AbstractBaseUser, PermissionsMixin):
     def save(self, *args, **kwargs):
         """Méthode pour sauvegarder l'objet User dans la base de données"""
         super(User, self).save(*args, **kwargs)
-
-    #@property
-    #def contributed_projects_count(self):
-        #"""Retourne le nombre de projets auxquels l'utilisateur a contribué"""
-        #return self.contributor_set.values('project').distinct().count()

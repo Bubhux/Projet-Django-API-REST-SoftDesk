@@ -30,9 +30,9 @@
 - Inscription et connexion.   
 - Navigation au travers des end points de l'API.   
 
-Pour plus de détails sur le fonctionnement de cette API, se référer à sa [documentation]() (Postman).   
+Pour plus de détails sur le fonctionnement de cette API, se référer à sa [documentation](https://documenter.getpostman.com/view/26427645/2s9Xy2Ps1k) (Postman).   
 
-_Testé sous Windows 7 - Python 3.7.2 - Django 3.2.20 - DRF 3.12.4_   
+>_Testé sous Windows 7 - Python 3.7.2 - Django 3.2.20 - DRF 3.12.4_   
 
 
 <div id="interface-administration-django"></div>
@@ -164,7 +164,7 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 <div id="liste-endpoints"></div>
 
-#### Liste des end points de l'API (détaillés dans la [documentation]() :   
+#### Liste des end points de l'API (détaillés dans la [documentation](https://documenter.getpostman.com/view/26427645/2s9Xy2Ps1k) :   
 
 | #   | End points d'API                                            | Méthode HTTP   | URL (base: http://127.0.0.1:8000)                                |
 |-----|-------------------------------------------------------------|----------------|------------------------------------------------------------------|
@@ -216,13 +216,13 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 
 **Navigateur.**   
-*Note : Les tests ont était fait sur Firefox et Google Chrome.*   
+>*Note : Les tests ont était fait sur Firefox et Google Chrome.*   
 
 
 <div id="rapport-flake8"></div>
 
 ### Rapport avec flake8   
--Le repository contient un rapport flake8, qui renvoi ```...```.   
+-Le repository contient un rapport flake8, qui renvoi ```All good! No flake8 errors found in 20 files scanned.```.   
 &rarr; ([.flake8](.flake8))   
 -Il est possible d'en générer un nouveau en installant le module ```flake8``` s'il n'est pas installé.   
 
@@ -238,7 +238,12 @@ pip install flake8-html
 [flake8]
 exclude = .git, env, .gitignore, static, static, *tests.py, **/templates/, **/migrations/
 max-line-length = 119
+<<<<<<< HEAD
 ```
+=======
+ignore = F401, W504, F811, F821
+```   
+>>>>>>> development
 
 **Tapez dans votre terminal la commande:**   
 

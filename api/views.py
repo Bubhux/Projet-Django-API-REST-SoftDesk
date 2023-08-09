@@ -22,13 +22,12 @@ from user.serializers import UserSignupSerializer
 from user.models import User
 
 
-User = get_user_model()
-
 class MultipleSerializerMixin:
     """Mixin pour utiliser plusieurs classes de sérialiseur dans une vue."""
 
     # Par défaut, la variable detail_serializer_class est définie sur None.
-    # Ce qui signifie qu'il n'y a pas de sérialiseur spécifique défini pour les actions de type "retrieve", "create", "update" et "destroy".
+    # Ce qui signifie qu'il n'y a pas de sérialiseur spécifique défini pour les actions de type
+    # "retrieve", "create", "update" et "destroy".
     detail_serializer_class = None
 
     def get_serializer_class(self):
@@ -119,7 +118,7 @@ class ProjectViewSet(MultipleSerializerMixin, ModelViewSet):
         project = self.get_object()
         data = request.data.copy()
         data['author'] = project.author.id
-        serializer = ProjectSerializer(project, data=data)
+        serializer = ProjectListSerializer(project, data=data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
@@ -171,7 +170,6 @@ class UserContributorsViewSet(MultipleSerializerMixin, ModelViewSet):
 
     def destroy(self, request, project_pk, pk):
         """Supprime le contributeur spécifié de l'objet Project spécifié."""
-        project = self.get_project(project_pk)
         contributor = self.get_object()
         if contributor.role == 'AUTHOR':
             return Response('Project author cannot be deleted.', status=status.HTTP_400_BAD_REQUEST)
@@ -201,10 +199,8 @@ class IssueViewSet(MultipleSerializerMixin, ModelViewSet):
         """Sauvegarde un nouvel objet Issue associé à l'objet Project spécifié et à l'auteur actuellement connecté."""
         project_pk = self.kwargs.get('project_pk')
         project = self.get_project(project_pk)
-        
         assignee_id = self.request.data.get('assignee')
         print(f"Assignee ID from request data: {assignee_id}")
-        
         if assignee_id:
             try:
                 assignee = get_user_model().objects.get(id=assignee_id)
@@ -216,15 +212,12 @@ class IssueViewSet(MultipleSerializerMixin, ModelViewSet):
                     assignee = get_user_model().objects.get(id=assignee_id)
                 except get_user_model().DoesNotExist:
                     raise serializers.ValidationError("Invalid assignee ID")
-            
         else:
             serializer.save(project=project, author=self.request.user)
-    
+
     def update(self, request, project_pk, pk):
         """Met à jour l'objet Issue spécifié associé à l'objet Project spécifié."""
-        project = self.get_project(project_pk)
         issue = self.get_object()
-
         serializer = self.serializer_class(issue, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
@@ -240,7 +233,6 @@ class IssueViewSet(MultipleSerializerMixin, ModelViewSet):
 
     def destroy(self, request, project_pk, pk):
         """Supprime l'objet Issue spécifié associé à l'objet Project spécifié."""
-        project = self.get_project(project_pk)
         issue = self.get_object()
         issue.delete()
         return Response('Issue successfully deleted.', status=status.HTTP_204_NO_CONTENT)
@@ -281,4 +273,3 @@ class CommentViewSet(MultipleSerializerMixin, ModelViewSet):
     def perform_destroy(self, instance):
         """Supprime l'objet Comment spécifié."""
         instance.delete()
-

@@ -38,13 +38,13 @@ class UserSignupSerializer(serializers.ModelSerializer):
         """Méthode pour obtenir les jetons (tokens) d'authentification pour l'utilisateur"""
 
         # Générer les jetons à l'aide de Django REST framework simplejwt
-        tokens = RefreshToken.for_user(user) 
+        tokens = RefreshToken.for_user(user)
         data = {
             "refresh": str(tokens),  # Convertir le jeton d'actualisation en chaîne
             "access": str(tokens.access_token)  # Convertir le jeton d'accès en chaîne
         }
         # Retourner le dictionnaire contenant les jetons
-        return data 
+        return data
 
     def create(self, validated_data):
         """Méthode pour créer un nouvel utilisateur dans la base de données"""
@@ -58,7 +58,7 @@ class UserSignupSerializer(serializers.ModelSerializer):
         # Récupérer le choix du consentement à partir des données validées
         user = User.objects.create_user(
             username=validated_data['username'],
-            age=validated_data['age'], 
+            age=validated_data['age'],
             consent_choice=validated_data['consent_choice'],
             password=password,  # Utiliser le mot de passe récupéré
         )
