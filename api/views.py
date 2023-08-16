@@ -124,9 +124,14 @@ class ProjectViewSet(MultipleSerializerMixin, ModelViewSet):
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk=None):
+    def destroy(self, request, project_pk=None, pk=None):
         """Supprime l'objet Project spécifié par la clé primaire passée dans l'URL."""
         project = self.get_object()
+
+        # Utilise la permission pour vérifier si l'utilisateur est l'auteur du projet
+        if not self.request.user == project.author:
+            return Response("You don't have permission to delete this project.", status=status.HTTP_403_FORBIDDEN)
+
         project.delete()
         return Response('Project successfully deleted.', status=status.HTTP_204_NO_CONTENT)
 
