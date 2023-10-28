@@ -1,5 +1,7 @@
 ![Static Badge](/static/badges/build-with-python.svg) ![Static Badge](/static/badges/use-postman.svg) ![Static Badge](/static/badges/build-with-django-drf.svg) ![Static Badge](/static/badges/api-restful.svg)
 
+<div id="top"></div>
+
 # Menu   
 1. **[Informations générales](#informations-générales)**   
 2. **[Fonctionnalitées](#fonctionnalitées)**   
@@ -24,6 +26,7 @@
 
 
 <div id="fonctionnalitées"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Fonctionnalitées   
 - Opérations CRUD.   
@@ -36,6 +39,7 @@ Pour plus de détails sur le fonctionnement de cette API, se référer à sa &ra
 
 
 <div id="interface-administration-django"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Interface d'administration Django    
 
@@ -58,6 +62,7 @@ Identifiant : **Admin** | Mot de passe : **Hello123**
 
 
 <div id="liste-pre-requis"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Liste pré-requis   
 Programme élaboré avec les logiciels suivants:   
@@ -76,6 +81,7 @@ Programme élaboré avec les logiciels suivants:
 
 
 <div id="creation-environnement"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Création de l'environnement virtuel   
 -Installer une version de Python compatible pour votre ordinateur.   
@@ -90,6 +96,7 @@ Un répertoire appelé env doit être créé.
 
 
 <div id="activation-environnement"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Activation de l'environnement virtuel   
 -Placez-vous avec le terminal dans le dossier principale (dossier racine).   
@@ -106,6 +113,7 @@ deactivate
 ```
 
 <div id="installation-librairies"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Installation des librairies   
 -Le programme utilise plusieurs librairies externes et modules de Python, qui sont répertoriés dans le fichier ```requirements.txt```.   
@@ -120,6 +128,7 @@ pip install -r requirements.txt
 ```
 
 <div id="execution-application"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Exécution de l'application
 
@@ -163,6 +172,7 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 
 <div id="liste-endpoints"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 #### Liste des end points de l'API (détaillés dans la [documentation](https://documenter.getpostman.com/view/26427645/2s9Xy2Ps1k) :   
 
@@ -194,6 +204,7 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 
 <div id="liste-endpoints-admin"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 #### Liste des end points de l'API en administrateur   
 
@@ -220,6 +231,7 @@ Remplacer ```is_staff=False``` par ```is_staff=True```
 
 
 <div id="rapport-flake8"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Rapport avec flake8   
 -Le repository contient un rapport flake8, qui renvoi ```All good! No flake8 errors found in 20 files scanned.```.   
@@ -250,6 +262,7 @@ flake8 --format=html --htmldir=flake-report
 
 
 <div id="informations-importantes"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Informations importantes sur les différents fichiers et dossiers   
 -**Le dossier api**   
@@ -271,6 +284,7 @@ flake8 --format=html --htmldir=flake-report
 Dossier qui contient qui contient les images svg des badges.   
 
 <div id="auteur-contact"></div>
+<a href="#top" style="float: right;">Retour en haut ↑</a>
 
 ### Auteur et contact   
 Pour toute information suplémentaire, vous pouvez me contacter.   
