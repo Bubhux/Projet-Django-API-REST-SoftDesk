@@ -90,7 +90,7 @@ Programme élaboré avec les les technologies suivantes :
 - Les scripts **Python** s'exécutent depuis un terminal.   
   - Pour ouvrir un terminal sur **Windows**, pressez la touche ```windows + r``` et entrez ```cmd```.   
   - Sur **Mac**, pressez la touche ```command + espace``` et entrez ```terminal```.   
-  - Sur **Linux**, vous pouvez ouviri un terminal en pressant les touches ```Ctrl + Alt + T```.   
+  - Sur **Linux**, vous pouvez ouvrir un terminal en pressant les touches ```Ctrl + Alt + T```.   
 
 --------------------------------------------------------------------------------------------------------------------------------
 
@@ -238,21 +238,20 @@ Tapez dans votre terminal les commandes :
 
 | **Note : Les end points suivants sont disponibles en administrateur pour pouvoir visualiser les données.** |
 |------------------------------------------------------------------------------------------------------------|
-|&rarr; http://127.0.0.1:8000/api/admin/users/                                                               |
-|&rarr; http://127.0.0.1:8000/api/admin/users/{id}/                                                          |
-|                                                                                                            |
-|&rarr; http://127.0.0.1:8000/api/admin/projects/                                                            |
-|&rarr; http://127.0.0.1:8000/api/admin/projects/{id}/                                                       |
-|                                                                                                            |
-|&rarr; http://127.0.0.1:8000/api/admin/contributors/                                                        |
-|&rarr; http://127.0.0.1:8000/api/admin/contributors/{id}/                                                   |
-|                                                                                                            |
-|&rarr; http://127.0.0.1:8000/api/admin/issues/                                                              |
-|&rarr; http://127.0.0.1:8000/api/admin/issues/{id}/                                                         |
-|                                                                                                            |
-|&rarr; http://127.0.0.1:8000/api/admin/comments/                                                            |
-|&rarr; http://127.0.0.1:8000/api/admin/comments/{id}/                                                       |
-
+|➔ http://127.0.0.1:8000/api/admin/users/                                                                   
+|➔ http://127.0.0.1:8000/api/admin/users/{id}/                                                              
+|                                                                                                            
+|➔ http://127.0.0.1:8000/api/admin/projects/                                                                
+|➔ http://127.0.0.1:8000/api/admin/projects/{id}/                                                           
+|                                                                                                            
+|➔ http://127.0.0.1:8000/api/admin/contributors/                                                            
+|➔ http://127.0.0.1:8000/api/admin/contributors/{id}/                                                       
+|                                                                                                            
+|➔ http://127.0.0.1:8000/api/admin/issues/                                                                  
+|➔ http://127.0.0.1:8000/api/admin/issues/{id}/                                                             
+|                                                                                                            
+|➔ http://127.0.0.1:8000/api/admin/comments/                                                                
+|➔ http://127.0.0.1:8000/api/admin/comments/{id}/                                                           
 
 **Navigateur.**   
 >*Note : Les tests ont était fait sur **Firefox** et **Google Chrome**.*   
