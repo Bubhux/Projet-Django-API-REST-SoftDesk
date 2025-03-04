@@ -253,7 +253,6 @@ Tapez dans votre terminal les commandes :
 |➔ http://127.0.0.1:8000/api/admin/comments/                                                                
 |➔ http://127.0.0.1:8000/api/admin/comments/{id}/                                                           
 
-
 **Navigateur.**   
 >*Note : Les tests ont était fait sur **Firefox** et **Google Chrome**.*   
 
