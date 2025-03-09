@@ -240,19 +240,14 @@ Tapez dans votre terminal les commandes :
 |------------------------------------------------------------------------------------------------------------|
 | ➔ http://127.0.0.1:8000/api/admin/users/                                                                   
 | ➔ http://127.0.0.1:8000/api/admin/users/{id}/                                                              
-|
 | ➔ http://127.0.0.1:8000/api/admin/projects/                                                                
 | ➔ http://127.0.0.1:8000/api/admin/projects/{id}/                                                           
-|
 | ➔ http://127.0.0.1:8000/api/admin/contributors/                                                            
 | ➔ http://127.0.0.1:8000/api/admin/contributors/{id}/                                                       
-|
 | ➔ http://127.0.0.1:8000/api/admin/issues/                                                                  
 | ➔ http://127.0.0.1:8000/api/admin/issues/{id}/                                                             
-|
 | ➔ http://127.0.0.1:8000/api/admin/comments/                                                                
 | ➔ http://127.0.0.1:8000/api/admin/comments/{id}/                                                           
-
 
 **Navigateur.**   
 >*Note : Les tests ont était fait sur **Firefox** et **Google Chrome**.*   
