@@ -240,30 +240,16 @@ Tapez dans votre terminal les commandes :
 |------------------------------------------------------------------------------------------------------------|
 | ➔ http://127.0.0.1:8000/api/admin/users/                                                                   
 | ➔ http://127.0.0.1:8000/api/admin/users/{id}/                                                              
-|                                                                                                             
+|
 | ➔ http://127.0.0.1:8000/api/admin/projects/                                                                
 | ➔ http://127.0.0.1:8000/api/admin/projects/{id}/                                                           
-|                                                                                                             
+|
 | ➔ http://127.0.0.1:8000/api/admin/contributors/                                                            
 | ➔ http://127.0.0.1:8000/api/admin/contributors/{id}/                                                       
-|                                                                                                             
+|
 | ➔ http://127.0.0.1:8000/api/admin/issues/                                                                  
 | ➔ http://127.0.0.1:8000/api/admin/issues/{id}/                                                             
-|                                                                                                             
-| ➔ http://127.0.0.1:8000/api/admin/comments/                                                                
-| ➔ http://127.0.0.1:8000/api/admin/comments/{id}/                                                            
-
-
-| **Note : Les end points suivants sont disponibles en administrateur pour pouvoir visualiser les données.** |
-|------------------------------------------------------------------------------------------------------------|
-| ➔ http://127.0.0.1:8000/api/admin/users/                                                                   
-| ➔ http://127.0.0.1:8000/api/admin/users/{id}/                                                              
-| ➔ http://127.0.0.1:8000/api/admin/projects/                                                                
-| ➔ http://127.0.0.1:8000/api/admin/projects/{id}/                                                           
-| ➔ http://127.0.0.1:8000/api/admin/contributors/                                                            
-| ➔ http://127.0.0.1:8000/api/admin/contributors/{id}/                                                       
-| ➔ http://127.0.0.1:8000/api/admin/issues/                                                                  
-| ➔ http://127.0.0.1:8000/api/admin/issues/{id}/                                                             
+|
 | ➔ http://127.0.0.1:8000/api/admin/comments/                                                                
 | ➔ http://127.0.0.1:8000/api/admin/comments/{id}/                                                           
 
